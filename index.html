@@ -1,15 +1,267 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Danshira</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dan Shira Craftsman — Restauração de luvas de beisebol e softbol</title>
+<meta name="description" content="Restauração, reforma e revisão de luvas de beisebol e softbol, produtos de couro do ateliê e marcenaria sob encomenda. Ateliê no Jabaquara, São Paulo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main>
-    <h1>Danshira</h1>
-    <p>Site em construção.</p>
-  </main>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#top" class="logo-link">
+      <img src="assets/logo-lockup-dark.png" alt="Dan Shira Craftsman" class="logo">
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#caminho">Serviços</a>
+      <a href="#antes-depois">Trabalhos</a>
+      <a href="#produtos">Produtos</a>
+      <span>Cuidados</span>
+    </nav>
+    <a class="btn btn-primary btn-nav" href="https://wa.me/5511917538155" target="_blank" rel="noopener">Orçamento</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">≡</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero-bg" style="background-image:url('assets/bancada-hero.png')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="eyebrow"><span class="eyebrow-line"></span>MANUTENÇÃO DE LUVAS · DESDE 2018 · SÃO PAULO</p>
+      <h1>Sua luva<br>nova de novo</h1>
+      <p class="hero-copy">Cada peça passa pela bancada uma única vez, sem pressa. Couro condicionado, laçamento refeito, forma recuperada — para durar muitas temporadas.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://wa.me/5511917538155" target="_blank" rel="noopener">Pedir orçamento</a>
+        <a class="btn btn-secondary" href="#antes-depois">Ver antes / depois</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat">
+      <div class="stat-num">8 ANOS</div>
+      <div class="stat-label">DE BANCADA</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">BRASIL</div>
+      <div class="stat-label">RECEBO E DEVOLVO POR ENVIO</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">1 A 1</div>
+      <div class="stat-label">SEM LINHA DE PRODUÇÃO</div>
+    </div>
+  </section>
+
+  <section id="antes-depois" class="before-after">
+    <div class="section-head">
+      <h2>O antes e o depois</h2>
+      <p class="case-tag" id="caseTag"></p>
+    </div>
+
+    <div class="tabs" id="tabs"></div>
+
+    <div class="ba-layout">
+      <div class="ba-slider-col">
+        <div class="ba-slider" id="baSlider">
+          <img id="imgBefore" class="ba-img-before" src="" alt="Antes da restauração" draggable="false">
+          <div class="ba-fill" id="baFill">
+            <div class="ba-fill-clip">
+              <img id="imgAfter" class="ba-img-after" src="" alt="Depois da restauração" draggable="false">
+            </div>
+            <div class="ba-line" id="baLine"><div class="ba-handle">↔</div></div>
+          </div>
+          <span class="ba-badge ba-badge-after">DEPOIS</span>
+          <span class="ba-badge ba-badge-before">ANTES</span>
+          <span class="ba-angle-tag" id="angleTag"></span>
+        </div>
+        <p class="ba-hint" id="baHint">▶ COMPARANDO SOZINHO · ARRASTE PARA ASSUMIR</p>
+      </div>
+
+      <div class="ba-info">
+        <h3 id="casePeca"></h3>
+        <p id="caseResumo"></p>
+        <dl class="case-meta">
+          <div><dt>SERVIÇO</dt><dd id="caseServico"></dd></div>
+          <div><dt>ETAPA</dt><dd id="caseEtapa"></dd></div>
+          <div><dt>ÂNGULOS</dt><dd id="caseAngleCount"></dd></div>
+        </dl>
+        <div class="angles">
+          <p class="angles-label">OUTROS ÂNGULOS</p>
+          <div class="angle-grid" id="angleGrid"></div>
+        </div>
+        <p class="case-nota" id="caseNota"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="caminho" class="process">
+    <h2>O caminho da peça</h2>
+    <div class="process-list">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Revisão</div>
+        <div class="step-desc">A luva é aberta e avaliada: costura, laçamento, couro, forma. Do diagnóstico sai o que realmente precisa ser feito.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Reforma</div>
+        <div class="step-desc">Limpeza, condicionamento, reparos, quebra e retrançamento — combinados conforme a luva pede.</div>
+      </div>
+      <div class="process-step step-final">
+        <div class="step-num step-num-final">03</div>
+        <div class="step-title">Restauração</div>
+        <div class="step-desc">Troca de couro, reconstrução de partes e personalização. A luva volta inteira, pronta para jogar.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="produtos" class="cutting-mat">
+    <div class="mat-ruler">
+      <span>BASE DE CORTE · CM</span>
+      <span>COURO · MADEIRA · METAL</span>
+    </div>
+
+    <div class="mat-content">
+      <div class="section-head">
+        <h2>Produtos do ateliê</h2>
+        <p class="mono-tag">PEDIDO PELO WHATSAPP</p>
+      </div>
+      <p class="mat-lead">O que sobra de couro bom não vira resto: vira cinto, vira lata de creme, vira peça de bancada. Feito na mesma base de corte onde as luvas são abertas.</p>
+
+      <div class="product-grid-main">
+        <div class="product-card product-card-lg">
+          <img src="assets/prod/cinto.png" alt="Cinto de couro Dan Shira" class="ratio-4-3">
+          <div class="product-body">
+            <div class="product-title-row">
+              <h3>Cinto de couro</h3>
+              <span class="mono-tag">FEITO AQUI</span>
+            </div>
+            <p>Couro maciço, gravação do oni em baixo-relevo, passador contrastante e fivela cromada. Cortado no tamanho de quem vai usar.</p>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="assets/prod/creme.png" alt="Creme condicionador Dan Shira" class="ratio-1-1">
+          <div class="product-body product-body-sm">
+            <h3 class="product-title-sm">Creme condicionador</h3>
+            <p class="product-desc-sm">Lata do ateliê. Hidrata sem pesar o couro.</p>
+          </div>
+        </div>
+        <div class="product-col">
+          <div class="product-card product-card-flex">
+            <img src="assets/prod/cinto-cores.png" alt="Cintos em várias cores" class="ratio-1-1">
+            <div class="product-mini-row"><span>Cores</span><span class="mono-tag">SOB PEDIDO</span></div>
+          </div>
+          <div class="product-card product-card-flex">
+            <img src="assets/prod/cinto-emboss.png" alt="Gravação do oni no couro" class="ratio-1-1">
+            <div class="product-mini-row"><span>Gravação</span><span class="mono-tag">BAIXO-RELEVO</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-grid-5">
+        <div class="product-card">
+          <img src="assets/prod/protetor-dedos.png" alt="Protetor de dedos" class="ratio-1-1">
+          <div class="product-mini"><span>Protetor de dedos</span><span class="mono-tag">FEITO AQUI</span></div>
+        </div>
+        <div class="product-card">
+          <div class="img-wrap">
+            <img src="assets/prod/mock-cola.png" alt="Cola spray para luva de rebatida" class="ratio-1-1">
+            <span class="placeholder-tag">IMAGEM PROVISÓRIA</span>
+          </div>
+          <div class="product-mini"><span>Cola spray batting</span><span class="mono-tag mono-tag-dim">REVENDA</span></div>
+        </div>
+        <div class="product-card">
+          <div class="img-wrap">
+            <img src="assets/prod/mock-elastico.png" alt="Cinto elástico" class="ratio-1-1">
+            <span class="placeholder-tag">IMAGEM PROVISÓRIA</span>
+          </div>
+          <div class="product-mini"><span>Cinto elástico</span><span class="mono-tag mono-tag-dim">REVENDA</span></div>
+        </div>
+        <div class="product-card">
+          <div class="img-wrap">
+            <img src="assets/prod/mock-punho.png" alt="Protetor de punho" class="ratio-1-1">
+            <span class="placeholder-tag">IMAGEM PROVISÓRIA</span>
+          </div>
+          <div class="product-mini"><span>Protetor de punho</span><span class="mono-tag mono-tag-dim">REVENDA</span></div>
+        </div>
+        <div class="product-card">
+          <div class="img-wrap">
+            <img src="assets/prod/mock-garganta.png" alt="Protetor de garganta" class="ratio-1-1">
+            <span class="placeholder-tag">IMAGEM PROVISÓRIA</span>
+          </div>
+          <div class="product-mini"><span>Protetor de garganta</span><span class="mono-tag mono-tag-dim">REVENDA</span></div>
+        </div>
+      </div>
+
+      <div id="marcenaria" class="woodwork">
+        <div class="woodwork-head">
+          <div class="woodwork-intro">
+            <p class="mono-tag mono-tag-mint">A OUTRA BANCADA</p>
+            <h2>Couro e madeira</h2>
+            <p>Quem restaura a luva também faz onde ela vai morar: expositor com cúpula, suporte em forma de home plate, base maciça com berço para as bolas — tudo lixado à mão e marcado a fogo com o oni.</p>
+          </div>
+          <div class="chips">
+            <span>EXPOSITOR COM CÚPULA</span>
+            <span>SUPORTE HOME PLATE</span>
+            <span>GRAVAÇÃO A FOGO</span>
+            <span>SOB ENCOMENDA</span>
+          </div>
+        </div>
+        <div class="woodwork-grid">
+          <div class="wood-card wood-card-tall">
+            <img src="assets/prod/marc-case.png" alt="Expositor com cúpula de acrílico">
+            <div class="product-mini"><span>Expositor com cúpula</span><span class="mono-tag mono-tag-mint">LUVA + DUAS BOLAS</span></div>
+          </div>
+          <div class="wood-card">
+            <img src="assets/prod/marc-stand.png" alt="Suporte de luva em forma de home plate">
+            <div class="wood-label">Suporte home plate</div>
+          </div>
+          <div class="wood-card">
+            <img src="assets/prod/marc-oni.png" alt="Oni gravado a fogo na madeira">
+            <div class="wood-label">Marca a fogo</div>
+          </div>
+          <div class="wood-card">
+            <img src="assets/prod/marc-base.png" alt="Base de madeira com berço para bolas">
+            <div class="wood-label">Base com berço</div>
+          </div>
+          <div class="wood-card">
+            <img src="assets/prod/marc-bancada.png" alt="Bancada de marcenaria do ateliê">
+            <div class="wood-label">Na bancada</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="cta">
+    <div class="cta-text">
+      <h2>Manda uma foto<br>da sua luva</h2>
+      <p>Eu digo o que ela precisa, o prazo e como enviar. Sem compromisso.</p>
+    </div>
+    <div class="cta-contact">
+      <img src="assets/mark-color.png" alt="" class="cta-mark">
+      <a class="cta-whats" href="https://wa.me/5511917538155" target="_blank" rel="noopener">+55 11 91753-8155</a>
+      <a class="cta-insta" href="https://instagram.com/danshira.glovecare" target="_blank" rel="noopener">@DANSHIRA.GLOVECARE</a>
+      <p class="cta-address">JABAQUARA · SÃO PAULO · SP</p>
+    </div>
+  </section>
+
+</main>
+
+<div class="mobile-cta-bar">
+  <a href="https://wa.me/5511917538155" target="_blank" rel="noopener">
+    <span>WHATSAPP</span>
+    <span>Chamar agora</span>
+  </a>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
