@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #6E6A61; font-family: Archivo, Helvetica, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: inherit; }
+  @keyframes dsSeam { 0%, 8% { left: 14%; } 50%, 58% { left: 86%; } 100% { left: 14%; } }
+  @keyframes dsWipe { 0%, 7% { width: 6%; } 50%, 57% { width: 94%; } 100% { width: 6%; } }
+  @keyframes dsWipeLine { 0%, 7% { left: 6%; } 50%, 57% { left: 94%; } 100% { left: 6%; } }
+  @keyframes dsReveal { 0%, 8% { clip-path: inset(0 86% 0 0); } 50%, 58% { clip-path: inset(0 14% 0 0); } 100% { clip-path: inset(0 86% 0 0); } }
+</style>
+</helmet>
+
+<section style="padding: 56px 64px 40px; display: flex; flex-direction: column; gap: 40px;">
+  <div style="display: flex; align-items: baseline; gap: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #EFEBE2;">
+    <span>Turno 2</span>
+    <span style="opacity: 0.6;">Oficina com o lockup do 1a no topo + antes/depois reais · <a href="#2a">2a</a></span>
+  </div>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 72px; align-items: flex-start;">
+    <div id="2a" style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; background: #A8462F; color: #FFFFFF; padding: 5px 9px;">2a</span>
+        <span style="font-family: Archivo, sans-serif; font-weight: 600; font-size: 17px; color: #F6F3EC;">Oficina · lockup + fotos reais</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #D6D1C6;">4 casos · 13 pares antes/depois · comparador arrastável</span>
+      </div>
+
+      <div style="display: flex; gap: 28px; align-items: flex-start;">
+        <div data-screen-label="2a Desktop" style="width: 900px; background: #16120F; color: #EDE7DB; box-shadow: 0 24px 60px rgba(0,0,0,0.4);">
+          <!-- nav com o lockup -->
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 20px 44px; border-bottom: 1px solid rgba(237,231,219,0.14);">
+            <img src="assets/logo-lockup-dark.png" alt="Dan Shira Craftsman" style="display: block; height: 38px; width: auto; flex: 0 0 auto;">
+            <div style="display: flex; gap: 24px; flex: 0 0 auto; font-size: 11.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(237,231,219,0.7); white-space: nowrap;">
+              <span>Serviços</span><span>Trabalhos</span><span>Produtos</span><span>Cuidados</span>
+            </div>
+            <div style="background: #A8462F; color: #FFF; flex: 0 0 auto; font-size: 11.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 11px 18px; white-space: nowrap;">Orçamento</div>
+          </div>
+
+          <!-- hero -->
+          <div style="position: relative; height: 620px; background-image: url('uploads/fotos-1785277512917.png'); background-size: cover; background-position: 45% 38%;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,18,15,0.55) 0%, rgba(22,18,15,0.35) 40%, rgba(22,18,15,0.96) 100%);"></div>
+            <div style="position: absolute; inset: 0; padding: 56px 44px; display: flex; flex-direction: column; justify-content: flex-end; gap: 22px;">
+              <div style="display: flex; align-items: center; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: #C99A80;">
+                <span style="width: 28px; height: 1px; background: #A8462F;"></span>MANUTENÇÃO DE LUVAS · DESDE 2018 · SÃO PAULO
+              </div>
+              <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 84px; line-height: 0.88; letter-spacing: -0.03em; text-transform: uppercase;">Sua luva<br>nova de novo</div>
+              <div style="max-width: 500px; font-size: 16px; line-height: 1.6; color: rgba(237,231,219,0.78); text-wrap: pretty;">Cada peça passa pela bancada uma única vez, sem pressa. Couro condicionado, laçamento refeito, forma recuperada — para durar muitas temporadas.</div>
+              <div style="display: flex; gap: 12px; padding-top: 8px;">
+                <div style="background: #A8462F; color: #FFF; font-size: 12.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 17px 26px;">Pedir orçamento</div>
+                <div style="border: 1px solid rgba(237,231,219,0.4); font-size: 12.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 17px 26px;">Ver antes / depois</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid rgba(237,231,219,0.14);">
+            <div style="padding: 26px 44px; border-right: 1px solid rgba(237,231,219,0.14);"><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em;">8 ANOS</div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; color: rgba(237,231,219,0.55); margin-top: 6px;">DE BANCADA</div></div>
+            <div style="padding: 26px 32px; border-right: 1px solid rgba(237,231,219,0.14);"><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em;">BRASIL</div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; color: rgba(237,231,219,0.55); margin-top: 6px;">RECEBO E DEVOLVO POR ENVIO</div></div>
+            <div style="padding: 26px 32px;"><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em;">1 A 1</div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; color: rgba(237,231,219,0.55); margin-top: 6px;">SEM LINHA DE PRODUÇÃO</div></div>
+          </div>
+
+          <!-- ANTES / DEPOIS — fotos reais -->
+          <div style="padding: 76px 44px 84px;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 22px;">
+              <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 42px; letter-spacing: -0.02em; text-transform: uppercase;">O antes e o depois</div>
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: #C99A80;">{{ caseInfo.reg }} · {{ caseInfo.servico }}</div>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
+              <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+                <div onClick="{{ t.pick }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.14em; padding: 10px 14px; cursor: pointer; border: 1px solid rgba(237,231,219,0.24); border-color: {{ t.border }}; background: {{ t.bg }}; color: {{ t.color }};">{{ t.label }}</div>
+              </sc-for>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 500px 1fr; gap: 28px; align-items: start;">
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div onPointerDown="{{ sd.onPointerDown }}" onPointerMove="{{ sd.onPointerMove }}" onPointerUp="{{ sd.onPointerUp }}" onPointerCancel="{{ sd.onPointerCancel }}" style="position: relative; width: 500px; height: 500px; overflow: hidden; background: #241D19; cursor: ew-resize; touch-action: none; user-select: none;">
+                  <img ref="{{ refBD }}" src="assets/ba/raw-5-antes.png" alt="Antes da restauração" style="position: absolute; top: 0; left: 0; width: 500px; height: 500px; object-fit: cover; display: block;">
+                  <div ref="{{ sd.refFill }}" style="position: absolute; top: 0; left: 0; bottom: 0; overflow: hidden; width: 52%; animation: dsWipe 9s ease-in-out infinite;">
+                    <img ref="{{ refAD }}" src="assets/ba/raw-5-depois.png" alt="Depois da restauração" style="width: 500px; height: 500px; object-fit: cover; display: block;">
+                  </div>
+                  <div ref="{{ sd.refLine }}" style="position: absolute; top: 0; bottom: 0; width: 2px; background: #A8462F; pointer-events: none; left: 52%; animation: dsWipeLine 9s ease-in-out infinite;">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 46px; height: 46px; border-radius: 50%; background: #A8462F; color: #FFF; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px;">↔</div>
+                  </div>
+                  <div style="position: absolute; left: 16px; top: 16px; background: #A8462F; color: #FFF; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.18em; padding: 8px 12px; pointer-events: none;">DEPOIS</div>
+                  <div style="position: absolute; right: 16px; top: 16px; border: 1px solid rgba(237,231,219,0.45); color: rgba(237,231,219,0.85); background: rgba(22,18,15,0.55); font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.18em; padding: 8px 12px; pointer-events: none;">ANTES</div>
+                  <div style="position: absolute; left: 16px; bottom: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; color: rgba(237,231,219,0.75); background: rgba(22,18,15,0.6); padding: 7px 11px; pointer-events: none;">{{ angleCount }} · {{ angleLabel }}</div>
+                </div>
+                <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em; color: rgba(237,231,219,0.5);">{{ hintD }}</div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 22px;">
+                <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 22px; line-height: 1.15; letter-spacing: -0.01em; text-transform: uppercase;">{{ caseInfo.peca }}</div>
+                <div style="font-size: 14.5px; line-height: 1.6; color: rgba(237,231,219,0.72); text-wrap: pretty;">{{ caseInfo.resumo }}</div>
+                <div style="display: flex; flex-direction: column; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.1em; color: rgba(237,231,219,0.75);">
+                  <div style="display: flex; justify-content: space-between; gap: 10px; padding: 9px 0; border-top: 1px solid rgba(237,231,219,0.16);"><span style="opacity: 0.55;">SERVIÇO</span><span style="text-align: right;">{{ caseInfo.servico }}</span></div>
+                  <div style="display: flex; justify-content: space-between; gap: 10px; padding: 9px 0; border-top: 1px solid rgba(237,231,219,0.16);"><span style="opacity: 0.55;">ETAPA</span><span style="text-align: right;">{{ caseInfo.etapa }}</span></div>
+                  <div style="display: flex; justify-content: space-between; gap: 10px; padding: 9px 0; border-top: 1px solid rgba(237,231,219,0.16); border-bottom: 1px solid rgba(237,231,219,0.16);"><span style="opacity: 0.55;">ÂNGULOS</span><span style="text-align: right;">{{ angleCount }}</span></div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.16em; color: #C99A80;">OUTROS ÂNGULOS</div>
+                  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
+                    <sc-for list="{{ angles }}" as="ang" hint-placeholder-count="6">
+                      <div onClick="{{ ang.pick }}" style="cursor: pointer; display: flex; flex-direction: column; gap: 5px; border: 1px solid rgba(237,231,219,0.18); border-color: {{ ang.border }}; padding: 3px; opacity: {{ ang.opacity }};">
+                        <img ref="{{ ang.ref }}" src="assets/ba/raw-5-depois.png" alt="{{ ang.label }}" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+                        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.12em; color: rgba(237,231,219,0.8); text-align: center; padding-bottom: 2px;">{{ ang.label }}</span>
+                      </div>
+                    </sc-for>
+                  </div>
+                </div>
+                <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; line-height: 1.7; letter-spacing: 0.04em; color: #C99A80; border-left: 2px solid #A8462F; padding-left: 12px;">{{ caseInfo.nota }}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- processo -->
+          <div style="padding: 0 44px 80px;">
+            <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 42px; letter-spacing: -0.02em; text-transform: uppercase; margin-bottom: 34px;">O caminho da peça</div>
+            <div style="display: flex; flex-direction: column;">
+              <div style="display: grid; grid-template-columns: 120px 1fr 1fr; gap: 28px; padding: 30px 0; border-top: 1px solid rgba(237,231,219,0.16); align-items: start;">
+                <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 46px; color: rgba(237,231,219,0.22); letter-spacing: -0.03em;">01</div>
+                <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.01em; text-transform: uppercase;">Revisão</div>
+                <div style="font-size: 15px; line-height: 1.65; color: rgba(237,231,219,0.72);">A luva é aberta e avaliada: costura, laçamento, couro, forma. Do diagnóstico sai o que realmente precisa ser feito.</div>
+              </div>
+              <div style="display: grid; grid-template-columns: 120px 1fr 1fr; gap: 28px; padding: 30px 0; border-top: 1px solid rgba(237,231,219,0.16); align-items: start;">
+                <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 46px; color: rgba(237,231,219,0.22); letter-spacing: -0.03em;">02</div>
+                <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.01em; text-transform: uppercase;">Reforma</div>
+                <div style="font-size: 15px; line-height: 1.65; color: rgba(237,231,219,0.72);">Limpeza, condicionamento, reparos, quebra e retrançamento — combinados conforme a luva pede.</div>
+              </div>
+              <div style="display: grid; grid-template-columns: 120px 1fr 1fr; gap: 28px; padding: 30px 0; border-top: 1px solid rgba(237,231,219,0.16); border-bottom: 1px solid rgba(237,231,219,0.16); align-items: start;">
+                <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 46px; color: #A8462F; letter-spacing: -0.03em;">03</div>
+                <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.01em; text-transform: uppercase;">Restauração</div>
+                <div style="font-size: 15px; line-height: 1.65; color: rgba(237,231,219,0.72);">Troca de couro, reconstrução de partes e personalização. A luva volta inteira, pronta para jogar.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- produtos · sobre a base de corte -->
+          <div style="background: #1E2B22; background-image: repeating-linear-gradient(0deg, rgba(206,228,212,0.13) 0 1px, transparent 1px 28px), repeating-linear-gradient(90deg, rgba(206,228,212,0.13) 0 1px, transparent 1px 28px), repeating-linear-gradient(0deg, rgba(206,228,212,0.26) 0 1px, transparent 1px 140px), repeating-linear-gradient(90deg, rgba(206,228,212,0.26) 0 1px, transparent 1px 140px);">
+            <div style="height: 28px; background: rgba(0,0,0,0.4); background-image: repeating-linear-gradient(90deg, rgba(206,228,212,0.55) 0 1px, transparent 1px 14px); border-bottom: 1px solid rgba(206,228,212,0.3); display: flex; align-items: center; justify-content: space-between; padding: 0 12px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.2em; color: rgba(206,228,212,0.75); background: #1E2B22; padding: 0 6px;">BASE DE CORTE · CM</span>
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.2em; color: rgba(206,228,212,0.75); background: #1E2B22; padding: 0 6px;">COURO · MADEIRA · METAL</span>
+            </div>
+            <div style="padding: 66px 44px 74px;">
+              <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px;">
+                <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 42px; letter-spacing: -0.02em; text-transform: uppercase; color: #EDE7DB;">Produtos do ateliê</div>
+                <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: #C4D8C9;">PEDIDO PELO WHATSAPP</div>
+              </div>
+              <div style="max-width: 560px; font-size: 15px; line-height: 1.6; color: rgba(237,231,219,0.7); margin-bottom: 30px; text-wrap: pretty;">O que sobra de couro bom não vira resto: vira cinto, vira lata de creme, vira peça de bancada. Feito na mesma base de corte onde as luvas são abertas.</div>
+
+              <div style="display: grid; grid-template-columns: 1.55fr 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+                <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16); display: flex; flex-direction: column;">
+                  <img src="assets/prod/cinto.png" alt="Cinto de couro Dan Shira" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover;">
+                  <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px;">
+                    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px;">
+                      <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.01em; text-transform: uppercase;">Cinto de couro</div>
+                      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: #C99A80;">FEITO AQUI</div>
+                    </div>
+                    <div style="font-size: 14px; line-height: 1.55; color: rgba(237,231,219,0.7);">Couro maciço, gravação do oni em baixo-relevo, passador contrastante e fivela cromada. Cortado no tamanho de quem vai usar.</div>
+                  </div>
+                </div>
+                <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16); display: flex; flex-direction: column;">
+                  <img src="assets/prod/creme.png" alt="Creme condicionador Dan Shira" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+                  <div style="padding: 16px; display: flex; flex-direction: column; gap: 6px;">
+                    <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 17px; letter-spacing: -0.01em; text-transform: uppercase;">Creme condicionador</div>
+                    <div style="font-size: 13.5px; line-height: 1.5; color: rgba(237,231,219,0.68);">Lata do ateliê. Hidrata sem pesar o couro.</div>
+                  </div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                  <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16); display: flex; flex-direction: column; flex: 1;">
+                    <img src="assets/prod/cinto-cores.png" alt="Cintos em várias cores" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+                    <div style="padding: 14px; display: flex; align-items: baseline; justify-content: space-between; gap: 8px;">
+                      <span style="font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;">Cores</span>
+                      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: #C4D8C9;">SOB PEDIDO</span>
+                    </div>
+                  </div>
+                  <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16); display: flex; flex-direction: column; flex: 1;">
+                    <img src="assets/prod/cinto-emboss.png" alt="Gravação do oni no couro" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+                    <div style="padding: 14px; display: flex; align-items: baseline; justify-content: space-between; gap: 8px;">
+                      <span style="font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;">Gravação</span>
+                      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: #C4D8C9;">BAIXO-RELEVO</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;">
+                <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16); display: flex; flex-direction: column;">
+                  <img src="assets/prod/protetor-dedos.png" alt="Protetor de dedos" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+                  <div style="padding: 12px; display: flex; flex-direction: column; gap: 4px;">
+                    <span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase;">Protetor de dedos</span>
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.12em; color: #C99A80;">FEITO AQUI</span>
+                  </div>
+                </div>
+                <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16); display: flex; flex-direction: column;">
+                  <div style="position: relative;">
+                    <img src="assets/prod/mock-cola.png" alt="Cola spray para luva de rebatida" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+                    <span style="position: absolute; left: 8px; top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; letter-spacing: 0.14em; color: rgba(206,228,212,0.85); background: rgba(30,43,34,0.85); border: 1px solid rgba(206,228,212,0.35); padding: 4px 6px;">IMAGEM PROVISÓRIA</span>
+                  </div>
+                  <div style="padding: 12px; display: flex; flex-direction: column; gap: 4px;">
+                    <span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase;">Cola spray batting</span>
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.12em; color: rgba(206,228,212,0.7);">REVENDA</span>
+                  </div>
+                </div>
+                <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16); display: flex; flex-direction: column;">
+                  <div style="position: relative;">
+                    <img src="assets/prod/mock-elastico.png" alt="Cinto elástico" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+                    <span style="position: absolute; left: 8px; top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; letter-spacing: 0.14em; color: rgba(206,228,212,0.85); background: rgba(30,43,34,0.85); border: 1px solid rgba(206,228,212,0.35); padding: 4px 6px;">IMAGEM PROVISÓRIA</span>
+                  </div>
+                  <div style="padding: 12px; display: flex; flex-direction: column; gap: 4px;">
+                    <span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase;">Cinto elástico</span>
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.12em; color: rgba(206,228,212,0.7);">REVENDA</span>
+                  </div>
+                </div>
+                <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16); display: flex; flex-direction: column;">
+                  <div style="position: relative;">
+                    <img src="assets/prod/mock-punho.png" alt="Protetor de punho" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+                    <span style="position: absolute; left: 8px; top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; letter-spacing: 0.14em; color: rgba(206,228,212,0.85); background: rgba(30,43,34,0.85); border: 1px solid rgba(206,228,212,0.35); padding: 4px 6px;">IMAGEM PROVISÓRIA</span>
+                  </div>
+                  <div style="padding: 12px; display: flex; flex-direction: column; gap: 4px;">
+                    <span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase;">Protetor de punho</span>
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.12em; color: rgba(206,228,212,0.7);">REVENDA</span>
+                  </div>
+                </div>
+                <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16); display: flex; flex-direction: column;">
+                  <div style="position: relative;">
+                    <img src="assets/prod/mock-garganta.png" alt="Protetor de garganta" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+                    <span style="position: absolute; left: 8px; top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; letter-spacing: 0.14em; color: rgba(206,228,212,0.85); background: rgba(30,43,34,0.85); border: 1px solid rgba(206,228,212,0.35); padding: 4px 6px;">IMAGEM PROVISÓRIA</span>
+                  </div>
+                  <div style="padding: 12px; display: flex; flex-direction: column; gap: 4px;">
+                    <span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase;">Protetor de garganta</span>
+                    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.12em; color: rgba(206,228,212,0.7);">REVENDA</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- marcenaria -->
+              <div style="margin-top: 12px; border-top: 1px solid rgba(206,228,212,0.26); padding-top: 34px; display: flex; flex-direction: column; gap: 22px;">
+                <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 30px;">
+                  <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: #C4D8C9;">A OUTRA BANCADA</div>
+                    <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 34px; line-height: 0.98; letter-spacing: -0.02em; text-transform: uppercase;">Couro e madeira</div>
+                    <div style="font-size: 14.5px; line-height: 1.6; color: rgba(237,231,219,0.7); max-width: 430px; text-wrap: pretty;">Quem restaura a luva também faz onde ela vai morar: expositor com cúpula, suporte em forma de home plate, base maciça com berço para as bolas — tudo lixado à mão e marcado a fogo com o oni.</div>
+                  </div>
+                  <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: rgba(206,228,212,0.8);">
+                    <span style="border: 1px solid rgba(206,228,212,0.35); padding: 8px 11px;">EXPOSITOR COM CÚPULA</span>
+                    <span style="border: 1px solid rgba(206,228,212,0.35); padding: 8px 11px;">SUPORTE HOME PLATE</span>
+                    <span style="border: 1px solid rgba(206,228,212,0.35); padding: 8px 11px;">GRAVAÇÃO A FOGO</span>
+                    <span style="border: 1px solid rgba(206,228,212,0.35); padding: 8px 11px;">SOB ENCOMENDA</span>
+                  </div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1.15fr 1fr 1fr; grid-auto-rows: 196px; gap: 12px;">
+                  <div style="grid-row: span 2; background: #16120F; border: 1px solid rgba(206,228,212,0.16); display: flex; flex-direction: column; overflow: hidden;">
+                    <img src="assets/prod/marc-case.png" alt="Expositor com cúpula de acrílico" style="display: block; width: 100%; flex: 1; min-height: 0; object-fit: cover;">
+                    <div style="padding: 14px; display: flex; flex-direction: column; gap: 4px;">
+                      <span style="font-size: 13.5px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase;">Expositor com cúpula</span>
+                      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.12em; color: #C4D8C9;">LUVA + DUAS BOLAS</span>
+                    </div>
+                  </div>
+                  <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16); display: flex; flex-direction: column; overflow: hidden;">
+                    <img src="assets/prod/marc-stand.png" alt="Suporte de luva em forma de home plate" style="display: block; width: 100%; flex: 1; min-height: 0; object-fit: cover;">
+                    <div style="padding: 11px;"><span style="font-size: 12.5px; font-weight: 600; text-transform: uppercase;">Suporte home plate</span></div>
+                  </div>
+                  <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16); display: flex; flex-direction: column; overflow: hidden;">
+                    <img src="assets/prod/marc-oni.png" alt="Oni gravado a fogo na madeira" style="display: block; width: 100%; flex: 1; min-height: 0; object-fit: cover;">
+                    <div style="padding: 11px;"><span style="font-size: 12.5px; font-weight: 600; text-transform: uppercase;">Marca a fogo</span></div>
+                  </div>
+                  <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16); display: flex; flex-direction: column; overflow: hidden;">
+                    <img src="assets/prod/marc-base.png" alt="Base de madeira com berço para bolas" style="display: block; width: 100%; flex: 1; min-height: 0; object-fit: cover;">
+                    <div style="padding: 11px;"><span style="font-size: 12.5px; font-weight: 600; text-transform: uppercase;">Base com berço</span></div>
+                  </div>
+                  <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16); display: flex; flex-direction: column; overflow: hidden;">
+                    <img src="assets/prod/marc-bancada.png" alt="Bancada de marcenaria do ateliê" style="display: block; width: 100%; flex: 1; min-height: 0; object-fit: cover;">
+                    <div style="padding: 11px;"><span style="font-size: 12.5px; font-weight: 600; text-transform: uppercase;">Na bancada</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 76px 44px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: end;">
+            <div style="display: flex; flex-direction: column; gap: 18px;">
+              <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 52px; line-height: 0.94; letter-spacing: -0.03em; text-transform: uppercase;">Manda uma foto<br>da sua luva</div>
+              <div style="font-size: 15.5px; line-height: 1.6; color: rgba(237,231,219,0.72); max-width: 430px;">Eu digo o que ela precisa, o prazo e como enviar. Sem compromisso.</div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <img src="assets/mark-color.png" alt="" style="display: block; height: 100px; width: auto; align-self: flex-start; margin-bottom: 12px;">
+              <a href="{{ waHref }}" style="background: #A8462F; color: #FFF; padding: 17px; text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em;">+55 11 91753-8155</a>
+              <div style="border: 1px solid rgba(237,231,219,0.35); padding: 17px; text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em;">@DANSHIRA.GLOVECARE</div>
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: rgba(237,231,219,0.45); line-height: 1.8; padding-top: 6px;">JABAQUARA · SÃO PAULO · SP</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- mobile 2a -->
+        <div data-screen-label="2a Mobile" style="width: 390px; background: #16120F; color: #EDE7DB; border-radius: 34px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.4);">
+          <div style="height: 34px;"></div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 20px 14px;">
+            <img src="assets/logo-lockup-dark.png" alt="Dan Shira Craftsman" style="display: block; height: 26px; width: auto;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 18px;">≡</span>
+          </div>
+          <div style="position: relative; height: 460px; background-image: url('uploads/fotos-1785277512917.png'); background-size: cover; background-position: 48% 40%;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,18,15,0.4) 0%, rgba(22,18,15,0.3) 35%, rgba(22,18,15,0.97) 100%);"></div>
+            <div style="position: absolute; inset: 0; padding: 24px 20px 26px; display: flex; flex-direction: column; justify-content: flex-end; gap: 16px;">
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: #C99A80;">DESDE 2018 · SÃO PAULO</div>
+              <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 50px; line-height: 0.88; letter-spacing: -0.03em; text-transform: uppercase;">Sua luva<br>nova de<br>novo</div>
+              <div style="font-size: 14.5px; line-height: 1.55; color: rgba(237,231,219,0.78);">Revisão, reforma e restauração — uma peça por vez.</div>
+              <div style="background: #A8462F; color: #FFF; padding: 17px; text-align: center; font-size: 12.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;">Pedir orçamento</div>
+            </div>
+          </div>
+          <div style="padding: 30px 20px; display: flex; flex-direction: column; gap: 14px;">
+            <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em; text-transform: uppercase;">Antes / depois</div>
+            <div style="display: flex; gap: 6px; overflow: hidden; flex-wrap: wrap;">
+              <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+                <div onClick="{{ t.pick }}" style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.1em; padding: 8px 10px; cursor: pointer; border: 1px solid rgba(237,231,219,0.24); border-color: {{ t.border }}; background: {{ t.bg }}; color: {{ t.color }};">{{ t.label }}</div>
+              </sc-for>
+            </div>
+            <div onPointerDown="{{ sm.onPointerDown }}" onPointerMove="{{ sm.onPointerMove }}" onPointerUp="{{ sm.onPointerUp }}" onPointerCancel="{{ sm.onPointerCancel }}" style="position: relative; width: 350px; height: 350px; overflow: hidden; background: #241D19; cursor: ew-resize; touch-action: none; user-select: none;">
+              <img ref="{{ refBM }}" src="assets/ba/raw-5-antes.png" alt="Antes da restauração" style="position: absolute; top: 0; left: 0; width: 350px; height: 350px; object-fit: cover; display: block;">
+              <div ref="{{ sm.refFill }}" style="position: absolute; top: 0; left: 0; bottom: 0; overflow: hidden; width: 52%; animation: dsWipe 9s ease-in-out infinite;">
+                <img ref="{{ refAM }}" src="assets/ba/raw-5-depois.png" alt="Depois da restauração" style="width: 350px; height: 350px; object-fit: cover; display: block;">
+              </div>
+              <div ref="{{ sm.refLine }}" style="position: absolute; top: 0; bottom: 0; width: 2px; background: #A8462F; pointer-events: none; left: 52%; animation: dsWipeLine 9s ease-in-out infinite;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 40px; height: 40px; border-radius: 50%; background: #A8462F; color: #FFF; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px;">↔</div>
+              </div>
+              <div style="position: absolute; left: 12px; top: 12px; background: #A8462F; color: #FFF; font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.18em; padding: 6px 9px; pointer-events: none;">DEPOIS</div>
+              <div style="position: absolute; right: 12px; top: 12px; border: 1px solid rgba(237,231,219,0.45); background: rgba(22,18,15,0.55); font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.18em; padding: 6px 9px; pointer-events: none;">ANTES</div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;">
+              <sc-for list="{{ angles }}" as="ang" hint-placeholder-count="4">
+                <div onClick="{{ ang.pick }}" style="cursor: pointer; border: 1px solid rgba(237,231,219,0.18); border-color: {{ ang.border }}; padding: 2px; opacity: {{ ang.opacity }};">
+                  <img ref="{{ ang.refM }}" src="assets/ba/raw-5-depois.png" alt="{{ ang.label }}" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+                </div>
+              </sc-for>
+            </div>
+            <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 17px; letter-spacing: -0.01em; text-transform: uppercase; margin-top: 6px;">{{ caseInfo.peca }}</div>
+            <div style="font-size: 14px; line-height: 1.55; color: rgba(237,231,219,0.72);">{{ caseInfo.resumo }}</div>
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1.7; letter-spacing: 0.06em; color: #C99A80; border-left: 2px solid #A8462F; padding-left: 10px;">{{ caseInfo.nota }}</div>
+          </div>
+          <div style="background: #1E2B22; background-image: repeating-linear-gradient(0deg, rgba(206,228,212,0.13) 0 1px, transparent 1px 24px), repeating-linear-gradient(90deg, rgba(206,228,212,0.13) 0 1px, transparent 1px 24px), repeating-linear-gradient(0deg, rgba(206,228,212,0.26) 0 1px, transparent 1px 120px), repeating-linear-gradient(90deg, rgba(206,228,212,0.26) 0 1px, transparent 1px 120px);">
+            <div style="height: 24px; background: rgba(0,0,0,0.4); background-image: repeating-linear-gradient(90deg, rgba(206,228,212,0.5) 0 1px, transparent 1px 12px); border-bottom: 1px solid rgba(206,228,212,0.3); display: flex; align-items: center; padding: 0 10px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; letter-spacing: 0.2em; color: rgba(206,228,212,0.75); background: #1E2B22; padding: 0 5px;">BASE DE CORTE · CM</span>
+            </div>
+            <div style="padding: 28px 20px 30px; display: flex; flex-direction: column; gap: 14px;">
+              <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em; text-transform: uppercase;">Produtos</div>
+              <div style="font-size: 14px; line-height: 1.55; color: rgba(237,231,219,0.7);">O que sobra de couro bom vira cinto, lata de creme e peça de bancada.</div>
+              <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16);">
+                <img src="assets/prod/cinto.png" alt="Cinto de couro Dan Shira" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover;">
+                <div style="padding: 14px; display: flex; flex-direction: column; gap: 5px;">
+                  <span style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 19px; text-transform: uppercase;">Cinto de couro</span>
+                  <span style="font-size: 13.5px; line-height: 1.5; color: rgba(237,231,219,0.68);">Gravação do oni, fivela cromada, no seu tamanho.</span>
+                </div>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16);">
+                  <img src="assets/prod/creme.png" alt="Creme condicionador" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+                  <div style="padding: 11px;"><span style="font-size: 12.5px; font-weight: 600; text-transform: uppercase;">Creme condicionador</span></div>
+                </div>
+                <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16);">
+                  <img src="assets/prod/protetor-dedos.png" alt="Protetor de dedos" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+                  <div style="padding: 11px;"><span style="font-size: 12.5px; font-weight: 600; text-transform: uppercase;">Protetor de dedos</span></div>
+                </div>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+                <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16);">
+                  <img src="assets/prod/mock-cola.png" alt="Cola spray" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+                  <div style="padding: 8px 7px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; letter-spacing: 0.08em; color: rgba(237,231,219,0.8);">COLA SPRAY</span></div>
+                </div>
+                <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16);">
+                  <img src="assets/prod/mock-elastico.png" alt="Cinto elástico" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+                  <div style="padding: 8px 7px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; letter-spacing: 0.08em; color: rgba(237,231,219,0.8);">CINTO ELÁST.</span></div>
+                </div>
+                <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16);">
+                  <img src="assets/prod/mock-punho.png" alt="Protetor de punho" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+                  <div style="padding: 8px 7px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; letter-spacing: 0.08em; color: rgba(237,231,219,0.8);">PROT. PUNHO</span></div>
+                </div>
+                <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16);">
+                  <img src="assets/prod/mock-garganta.png" alt="Protetor de garganta" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover;">
+                  <div style="padding: 8px 7px;"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; letter-spacing: 0.08em; color: rgba(237,231,219,0.8);">PROT. GARGANTA</span></div>
+                </div>
+              </div>
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.12em; color: rgba(206,228,212,0.6);">REVENDA · IMAGENS PROVISÓRIAS</div>
+              <div style="border-top: 1px solid rgba(206,228,212,0.26); padding-top: 18px; display: flex; flex-direction: column; gap: 8px;">
+                <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.18em; color: #C4D8C9;">A OUTRA BANCADA</span>
+                <span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.02em; text-transform: uppercase;">Couro e madeira</span>
+                <span style="font-size: 13.5px; line-height: 1.55; color: rgba(237,231,219,0.7);">Marcenaria sob encomenda: expositor com cúpula, suporte home plate e base com berço para bolas — marcados a fogo.</span>
+                <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 10px; margin-top: 6px;">
+                  <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16);">
+                    <img src="assets/prod/marc-case.png" alt="Expositor com cúpula de acrílico" style="display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover;">
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16); flex: 1;">
+                      <img src="assets/prod/marc-stand.png" alt="Suporte home plate" style="display: block; width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="background: #16120F; border: 1px solid rgba(206,228,212,0.16); flex: 1;">
+                      <img src="assets/prod/marc-oni.png" alt="Oni gravado a fogo na madeira" style="display: block; width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding: 30px 20px; display: flex; flex-direction: column;">
+            <div style="display: grid; grid-template-columns: 52px 1fr; gap: 14px; padding: 18px 0; border-top: 1px solid rgba(237,231,219,0.16);"><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 28px; color: rgba(237,231,219,0.22);">01</div><div><div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 20px; text-transform: uppercase;">Revisão</div><div style="font-size: 14px; line-height: 1.55; color: rgba(237,231,219,0.7); margin-top: 4px;">O diagnóstico vem antes do orçamento.</div></div></div>
+            <div style="display: grid; grid-template-columns: 52px 1fr; gap: 14px; padding: 18px 0; border-top: 1px solid rgba(237,231,219,0.16);"><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 28px; color: rgba(237,231,219,0.22);">02</div><div><div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 20px; text-transform: uppercase;">Reforma</div><div style="font-size: 14px; line-height: 1.55; color: rgba(237,231,219,0.7); margin-top: 4px;">Limpeza, condicionamento, reparos, quebra.</div></div></div>
+            <div style="display: grid; grid-template-columns: 52px 1fr; gap: 14px; padding: 18px 0; border-top: 1px solid rgba(237,231,219,0.16); border-bottom: 1px solid rgba(237,231,219,0.16);"><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 28px; color: #A8462F;">03</div><div><div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 20px; text-transform: uppercase;">Restauração</div><div style="font-size: 14px; line-height: 1.55; color: rgba(237,231,219,0.7); margin-top: 4px;">Troca de couro e reconstrução.</div></div></div>
+          </div>
+          <div style="padding: 0 20px 30px; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+            <img src="assets/mark-color.png" alt="" style="display: block; height: 72px; width: auto;">
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.14em; color: rgba(237,231,219,0.45);">JABAQUARA · SÃO PAULO · SP</div>
+          </div>
+          <div style="position: sticky; bottom: 0; background: #A8462F; color: #FFF; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em;">WHATSAPP</span>
+            <span style="font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">Chamar agora</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 40px 64px 96px; display: flex; flex-direction: column; gap: 40px;">
+  <div style="display: flex; align-items: baseline; gap: 20px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #EFEBE2;">
+    <span>Turno 1</span>
+    <span style="opacity: 0.6;">Três direções para a home · desktop + mobile · <a href="#1a">1a</a> <a href="#1b">1b</a> <a href="#1c">1c</a></span>
+  </div>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 72px; align-items: flex-start;">
+
+    <!-- ══════════════════ 1a — ATELIÊ ══════════════════ -->
+    <div id="1a" style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; background: #F1ECE2; color: #23211D; padding: 5px 9px;">1a</span>
+        <span style="font-family: Archivo, sans-serif; font-weight: 600; font-size: 17px; color: #F6F3EC;">Ateliê</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #D6D1C6;">editorial claro · serifa · muito ar · o ofício tratado como galeria</span>
+      </div>
+
+      <div style="display: flex; gap: 28px; align-items: flex-start;">
+        <!-- desktop -->
+        <div style="width: 900px; background: #F1ECE2; color: #23211D; box-shadow: 0 24px 60px rgba(0,0,0,0.28);">
+          <!-- nav -->
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 22px 44px; border-bottom: 1px solid rgba(35,33,29,0.14);">
+            <img src="assets/logo-lockup.png" alt="Dan Shira Craftsman" style="display: block; height: 40px; width: auto; flex: 0 0 auto;">
+            <div style="display: flex; gap: 26px; flex: 0 0 auto; font-size: 12.5px; letter-spacing: 0.04em; text-transform: uppercase; color: #4A473F; white-space: nowrap;">
+              <span>Serviços</span><span>Trabalhos</span><span>Produtos</span><span>Cuidados</span>
+            </div>
+            <div style="border: 1px solid #3F4A3A; color: #3F4A3A; flex: 0 0 auto; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 9px 16px; white-space: nowrap;">Orçamento</div>
+          </div>
+
+          <!-- hero -->
+          <div style="display: grid; grid-template-columns: 1.05fr 0.95fr;">
+            <div style="padding: 72px 44px 64px; display: flex; flex-direction: column; gap: 26px;">
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: #43263A;">DESDE 2018 · JABAQUARA, SÃO PAULO</div>
+              <div style="font-family: 'Instrument Serif', serif; font-size: 66px; line-height: 0.96; letter-spacing: -0.015em; color: #23211D; text-wrap: pretty;">Sua luva<br>nova de novo.</div>
+              <div style="max-width: 380px; font-size: 15.5px; line-height: 1.65; color: #4A473F; text-wrap: pretty;">Manutenção, reforma e restauração de luvas de beisebol e softbol. Trabalho artesanal, feito peça por peça — prazo mais longo, resultado que dura temporadas.</div>
+              <div style="display: flex; gap: 12px; padding-top: 6px;">
+                <div style="background: #3F4A3A; color: #F1ECE2; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; padding: 15px 24px;">Pedir orçamento</div>
+                <div style="border: 1px solid rgba(35,33,29,0.3); color: #23211D; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; padding: 15px 24px;">Ver trabalhos</div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 9px; padding-top: 22px; margin-top: 8px; border-top: 1px solid rgba(35,33,29,0.14); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #4A473F;">
+                <span>8 ANOS DE OFÍCIO</span><span>ENVIO PARA TODO O BRASIL</span><span>ORÇAMENTO PELO WHATSAPP</span>
+              </div>
+            </div>
+            <div style="min-height: 520px; background-image: url('uploads/fotos-1785277512917.png'); background-size: cover; background-position: 42% center;"></div>
+          </div>
+
+          <!-- processo -->
+          <div style="padding: 76px 44px; border-top: 1px solid rgba(35,33,29,0.14);">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 40px;">
+              <div style="font-family: 'Instrument Serif', serif; font-size: 38px; color: #23211D;">Como o trabalho acontece</div>
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: #43263A;">01 → 03</div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(35,33,29,0.16);">
+              <div style="background: #F1ECE2; padding: 30px 28px; display: flex; flex-direction: column; gap: 12px;">
+                <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: #43263A;">01</div>
+                <div style="font-family: 'Instrument Serif', serif; font-size: 27px;">Revisão</div>
+                <div style="font-size: 14px; line-height: 1.6; color: #4A473F;">A luva chega e é aberta. Costura, laçamento, couro e forma são avaliados peça por peça. Você recebe o diagnóstico antes de qualquer decisão.</div>
+              </div>
+              <div style="background: #F1ECE2; padding: 30px 28px; display: flex; flex-direction: column; gap: 12px;">
+                <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: #43263A;">02</div>
+                <div style="font-family: 'Instrument Serif', serif; font-size: 27px;">Reforma</div>
+                <div style="font-size: 14px; line-height: 1.6; color: #4A473F;">O necessário, e só o necessário: retrançamento, reparos pontuais, condicionamento do couro e ajuste de quebra.</div>
+              </div>
+              <div style="background: #F1ECE2; padding: 30px 28px; display: flex; flex-direction: column; gap: 12px;">
+                <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: #43263A;">03</div>
+                <div style="font-family: 'Instrument Serif', serif; font-size: 27px;">Restauração</div>
+                <div style="font-size: 14px; line-height: 1.6; color: #4A473F;">Para luvas que merecem voltar inteiras: troca de couro, reconstrução de partes e personalização. Devolvida pronta para jogar.</div>
+              </div>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px;">
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #43263A; padding: 8px 0; margin-right: 8px;">SERVIÇOS APLICADOS</div>
+              <div style="border: 1px solid rgba(35,33,29,0.28); padding: 8px 14px; font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase;">Limpeza</div>
+              <div style="border: 1px solid rgba(35,33,29,0.28); padding: 8px 14px; font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase;">Condicionamento</div>
+              <div style="border: 1px solid rgba(35,33,29,0.28); padding: 8px 14px; font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase;">Reparos</div>
+              <div style="border: 1px solid rgba(35,33,29,0.28); padding: 8px 14px; font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase;">Quebra</div>
+              <div style="border: 1px solid rgba(35,33,29,0.28); padding: 8px 14px; font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase;">Retrançamento</div>
+              <div style="border: 1px solid rgba(35,33,29,0.28); padding: 8px 14px; font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase;">Troca de couro</div>
+              <div style="border: 1px solid rgba(35,33,29,0.28); padding: 8px 14px; font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase;">Personalização</div>
+            </div>
+          </div>
+
+          <!-- antes / depois -->
+          <div style="padding: 0 44px 76px;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px;">
+              <div style="font-family: 'Instrument Serif', serif; font-size: 38px;">O antes e o depois</div>
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: #4A473F;">A LINHA PERCORRE A PEÇA · ARRASTE PARA COMPARAR</div>
+            </div>
+            <div style="position: relative; height: 420px; overflow: hidden; background: #DED8CA;">
+              <div style="position: absolute; inset: 0; background-image: repeating-linear-gradient(135deg, rgba(35,33,29,0.11) 0 7px, rgba(35,33,29,0) 7px 15px); display: flex; align-items: center; justify-content: center;">
+                <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #6A6559; text-align: center; line-height: 1.8;">FOTO · LUVA ANTES<br>mesmo ângulo, mesma luz</div>
+              </div>
+              <div style="position: absolute; inset: 0; background: #C9BFA9; background-image: repeating-linear-gradient(135deg, rgba(63,74,58,0.22) 0 7px, rgba(63,74,58,0) 7px 15px); display: flex; align-items: center; justify-content: center; animation: dsReveal 11s ease-in-out infinite;">
+                <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #3F4A3A; text-align: center; line-height: 1.8;">FOTO · LUVA DEPOIS<br>mesmo ângulo, mesma luz</div>
+              </div>
+              <div style="position: absolute; top: 0; bottom: 0; width: 1px; background: #F1ECE2; box-shadow: 0 0 0 1px rgba(35,33,29,0.35); animation: dsSeam 11s ease-in-out infinite;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 44px; height: 44px; border-radius: 50%; background: #F1ECE2; border: 1px solid #3F4A3A; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #3F4A3A;">↔</div>
+              </div>
+              <div style="position: absolute; left: 16px; bottom: 16px; background: rgba(63,74,58,0.92); color: #F1ECE2; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; padding: 7px 11px;">DEPOIS</div>
+              <div style="position: absolute; right: 16px; bottom: 16px; background: rgba(35,33,29,0.75); color: #F1ECE2; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; padding: 7px 11px;">ANTES</div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 12px;">
+              <div style="height: 96px; background: #DED8CA; background-image: repeating-linear-gradient(135deg, rgba(35,33,29,0.1) 0 6px, rgba(35,33,29,0) 6px 13px);"></div>
+              <div style="height: 96px; background: #DED8CA; background-image: repeating-linear-gradient(135deg, rgba(35,33,29,0.1) 0 6px, rgba(35,33,29,0) 6px 13px);"></div>
+              <div style="height: 96px; background: #DED8CA; background-image: repeating-linear-gradient(135deg, rgba(35,33,29,0.1) 0 6px, rgba(35,33,29,0) 6px 13px);"></div>
+              <div style="height: 96px; background: #DED8CA; background-image: repeating-linear-gradient(135deg, rgba(35,33,29,0.1) 0 6px, rgba(35,33,29,0) 6px 13px); display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #6A6559;">+ 18 CASOS</div>
+            </div>
+          </div>
+
+          <!-- produtos -->
+          <div style="padding: 70px 44px; background: #E8E2D6; border-top: 1px solid rgba(35,33,29,0.14);">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 34px;">
+              <div style="font-family: 'Instrument Serif', serif; font-size: 38px;">Produtos do ateliê</div>
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: #43263A;">7 ITENS · PEDIDO PELO WPP</div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;">
+              <div style="background: #F1ECE2; padding: 14px;"><div style="height: 118px; background-image: repeating-linear-gradient(135deg, rgba(35,33,29,0.1) 0 6px, rgba(35,33,29,0) 6px 13px); margin-bottom: 12px;"></div><div style="font-size: 14px; font-weight: 500;">Creme hidratante</div></div>
+              <div style="background: #F1ECE2; padding: 14px;"><div style="height: 118px; background-image: repeating-linear-gradient(135deg, rgba(35,33,29,0.1) 0 6px, rgba(35,33,29,0) 6px 13px); margin-bottom: 12px;"></div><div style="font-size: 14px; font-weight: 500;">Cola spray batting</div></div>
+              <div style="background: #F1ECE2; padding: 14px;"><div style="height: 118px; background-image: repeating-linear-gradient(135deg, rgba(35,33,29,0.1) 0 6px, rgba(35,33,29,0) 6px 13px); margin-bottom: 12px;"></div><div style="font-size: 14px; font-weight: 500;">Cinto de couro</div></div>
+              <div style="background: #F1ECE2; padding: 14px;"><div style="height: 118px; background-image: repeating-linear-gradient(135deg, rgba(35,33,29,0.1) 0 6px, rgba(35,33,29,0) 6px 13px); margin-bottom: 12px;"></div><div style="font-size: 14px; font-weight: 500;">Cinto elástico</div></div>
+              <div style="background: #F1ECE2; padding: 14px;"><div style="height: 118px; background-image: repeating-linear-gradient(135deg, rgba(35,33,29,0.1) 0 6px, rgba(35,33,29,0) 6px 13px); margin-bottom: 12px;"></div><div style="font-size: 14px; font-weight: 500;">Protetor de punho</div></div>
+              <div style="background: #F1ECE2; padding: 14px;"><div style="height: 118px; background-image: repeating-linear-gradient(135deg, rgba(35,33,29,0.1) 0 6px, rgba(35,33,29,0) 6px 13px); margin-bottom: 12px;"></div><div style="font-size: 14px; font-weight: 500;">Protetor de garganta</div></div>
+              <div style="background: #F1ECE2; padding: 14px;"><div style="height: 118px; background-image: repeating-linear-gradient(135deg, rgba(35,33,29,0.1) 0 6px, rgba(35,33,29,0) 6px 13px); margin-bottom: 12px;"></div><div style="font-size: 14px; font-weight: 500;">Protetor de dedos</div></div>
+              <div style="background: #3F4A3A; color: #F1ECE2; padding: 18px; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px;"><div style="font-family: 'Instrument Serif', serif; font-size: 24px; line-height: 1.1;">Ver catálogo completo</div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; opacity: 0.8;">→ WHATSAPP</div></div>
+            </div>
+          </div>
+
+          <!-- cta / footer -->
+          <div style="background: #3F4A3A; color: #F1ECE2; padding: 68px 44px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: end;">
+            <div style="display: flex; flex-direction: column; gap: 18px;">
+              <div style="font-family: 'Instrument Serif', serif; font-size: 46px; line-height: 1.02;">Manda uma foto da<br>sua luva. Eu te digo<br>o que ela precisa.</div>
+              <div style="font-size: 14.5px; line-height: 1.6; opacity: 0.82; max-width: 420px;">Atendimento por WhatsApp, orçamento sem compromisso. Recebo luvas de todo o Brasil e devolvo com registro do serviço feito.</div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em;">
+              <img src="assets/mark-white.png" alt="" style="display: block; height: 88px; width: auto; align-self: flex-start; opacity: 0.92; margin-bottom: 10px;">
+              <a href="{{ waHref }}" style="background: #F1ECE2; color: #3F4A3A; padding: 16px 20px; text-align: center; letter-spacing: 0.12em;">+55 11 91753-8155</a>
+              <div style="border: 1px solid rgba(241,236,226,0.4); padding: 16px 20px; text-align: center; letter-spacing: 0.12em;">@DANSHIRA.GLOVECARE</div>
+              <div style="opacity: 0.6; line-height: 1.7; padding-top: 8px;">JABAQUARA · SÃO PAULO · SP<br>ATENDIMENTO COM AGENDAMENTO</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- mobile 1a -->
+        <div style="width: 390px; background: #F1ECE2; color: #23211D; border-radius: 34px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.28);">
+          <div style="height: 34px; background: #F1ECE2;"></div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 22px 16px; border-bottom: 1px solid rgba(35,33,29,0.14);">
+            <img src="assets/logo-lockup.png" alt="Dan Shira Craftsman" style="display: block; height: 30px; width: auto;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 18px; color: #23211D;">≡</span>
+          </div>
+          <div style="padding: 34px 22px 30px; display: flex; flex-direction: column; gap: 18px;">
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: #43263A;">DESDE 2018 · SÃO PAULO</div>
+            <div style="font-family: 'Instrument Serif', serif; font-size: 46px; line-height: 0.98;">Sua luva<br>nova de novo.</div>
+            <div style="font-size: 15px; line-height: 1.6; color: #4A473F;">Revisão, reforma e restauração de luvas de beisebol e softbol — artesanal, peça por peça.</div>
+            <div style="background: #3F4A3A; color: #F1ECE2; padding: 17px; text-align: center; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;">Pedir orçamento</div>
+          </div>
+          <div style="height: 260px; background-image: url('uploads/fotos-1785277512917.png'); background-size: cover; background-position: center;"></div>
+          <div style="padding: 30px 22px; display: flex; flex-direction: column; gap: 14px;">
+            <div style="font-family: 'Instrument Serif', serif; font-size: 30px;">Antes e depois</div>
+            <div style="position: relative; height: 250px; overflow: hidden; background: #DED8CA;">
+              <div style="position: absolute; inset: 0; background-image: repeating-linear-gradient(135deg, rgba(35,33,29,0.11) 0 7px, rgba(35,33,29,0) 7px 15px);"></div>
+              <div style="position: absolute; inset: 0; background: #C9BFA9; background-image: repeating-linear-gradient(135deg, rgba(63,74,58,0.22) 0 7px, rgba(63,74,58,0) 7px 15px); animation: dsReveal 11s ease-in-out infinite;"></div>
+              <div style="position: absolute; top: 0; bottom: 0; width: 1px; background: #F1ECE2; box-shadow: 0 0 0 1px rgba(35,33,29,0.35); animation: dsSeam 11s ease-in-out infinite;"></div>
+              <div style="position: absolute; left: 12px; bottom: 12px; background: rgba(63,74,58,0.92); color: #F1ECE2; font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.16em; padding: 6px 9px;">DEPOIS</div>
+              <div style="position: absolute; right: 12px; bottom: 12px; background: rgba(35,33,29,0.75); color: #F1ECE2; font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.16em; padding: 6px 9px;">ANTES</div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1px; background: rgba(35,33,29,0.16); margin-top: 12px;">
+              <div style="background: #F1ECE2; padding: 20px 18px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.16em; color: #43263A; margin-bottom: 8px;">01</div><div style="font-family: 'Instrument Serif', serif; font-size: 24px;">Revisão</div><div style="font-size: 14px; line-height: 1.55; color: #4A473F; margin-top: 6px;">Diagnóstico antes de qualquer decisão.</div></div>
+              <div style="background: #F1ECE2; padding: 20px 18px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.16em; color: #43263A; margin-bottom: 8px;">02</div><div style="font-family: 'Instrument Serif', serif; font-size: 24px;">Reforma</div><div style="font-size: 14px; line-height: 1.55; color: #4A473F; margin-top: 6px;">Retrançamento, reparos, condicionamento, quebra.</div></div>
+              <div style="background: #F1ECE2; padding: 20px 18px;"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.16em; color: #43263A; margin-bottom: 8px;">03</div><div style="font-family: 'Instrument Serif', serif; font-size: 24px;">Restauração</div><div style="font-size: 14px; line-height: 1.55; color: #4A473F; margin-top: 6px;">Troca de couro, reconstrução, personalização.</div></div>
+            </div>
+          </div>
+          <div style="position: sticky; bottom: 0; background: #3F4A3A; color: #F1ECE2; padding: 16px 22px; display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em;">ORÇAMENTO NO WPP</span>
+            <span style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; border-bottom: 1px solid rgba(241,236,226,0.5);">Chamar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════ 1b — OFICINA ══════════════════ -->
+    <div id="1b" style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; background: #F1ECE2; color: #23211D; padding: 5px 9px;">1b</span>
+        <span style="font-family: Archivo, sans-serif; font-weight: 600; font-size: 17px; color: #F6F3EC;">Oficina</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #D6D1C6;">escuro · caixa-alta condensada · couro sob luz dirigida · premium e intenso</span>
+      </div>
+
+      <div style="display: flex; gap: 28px; align-items: flex-start;">
+        <div style="width: 900px; background: #16120F; color: #EDE7DB; box-shadow: 0 24px 60px rgba(0,0,0,0.4);">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 20px 44px; border-bottom: 1px solid rgba(237,231,219,0.14);">
+            <div style="display: flex; align-items: center; gap: 12px; flex: 0 0 auto; white-space: nowrap;">
+              <img src="assets/mark-white.png" alt="" style="display: block; height: 34px; width: auto;">
+              <div style="display: flex; flex-direction: column; gap: 3px;">
+                <span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; line-height: 1; letter-spacing: -0.01em; white-space: nowrap;">DAN SHIRA</span>
+                <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; line-height: 1; letter-spacing: 0.24em; color: #B98A72; white-space: nowrap;">CRAFTSMAN</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 24px; flex: 0 0 auto; font-size: 11.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(237,231,219,0.7); white-space: nowrap;">
+              <span>Serviços</span><span>Trabalhos</span><span>Produtos</span><span>Cuidados</span>
+            </div>
+            <div style="background: #A8462F; color: #FFF; flex: 0 0 auto; font-size: 11.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 11px 18px; white-space: nowrap;">Orçamento</div>
+          </div>
+
+          <!-- hero full bleed -->
+          <div style="position: relative; height: 620px; background-image: url('uploads/fotos-1785277512917.png'); background-size: cover; background-position: 45% 38%;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,18,15,0.55) 0%, rgba(22,18,15,0.35) 40%, rgba(22,18,15,0.96) 100%);"></div>
+            <div style="position: absolute; inset: 0; padding: 56px 44px; display: flex; flex-direction: column; justify-content: flex-end; gap: 22px;">
+              <div style="display: flex; align-items: center; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: #C99A80;">
+                <span style="width: 28px; height: 1px; background: #A8462F;"></span>MANUTENÇÃO DE LUVAS · DESDE 2018 · SÃO PAULO
+              </div>
+              <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 84px; line-height: 0.88; letter-spacing: -0.03em; text-transform: uppercase;">Sua luva<br>nova de novo</div>
+              <div style="max-width: 500px; font-size: 16px; line-height: 1.6; color: rgba(237,231,219,0.78); text-wrap: pretty;">Cada peça passa pela bancada uma única vez, sem pressa. Couro condicionado, laçamento refeito, forma recuperada — para durar muitas temporadas.</div>
+              <div style="display: flex; gap: 12px; padding-top: 8px;">
+                <div style="background: #A8462F; color: #FFF; font-size: 12.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 17px 26px;">Pedir orçamento</div>
+                <div style="border: 1px solid rgba(237,231,219,0.4); font-size: 12.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 17px 26px;">Ver antes / depois</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid rgba(237,231,219,0.14);">
+            <div style="padding: 26px 44px; border-right: 1px solid rgba(237,231,219,0.14);"><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em;">8 ANOS</div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; color: rgba(237,231,219,0.55); margin-top: 6px;">DE BANCADA</div></div>
+            <div style="padding: 26px 32px; border-right: 1px solid rgba(237,231,219,0.14);"><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em;">BRASIL</div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; color: rgba(237,231,219,0.55); margin-top: 6px;">RECEBO E DEVOLVO POR ENVIO</div></div>
+            <div style="padding: 26px 32px;"><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em;">1 A 1</div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; color: rgba(237,231,219,0.55); margin-top: 6px;">SEM LINHA DE PRODUÇÃO</div></div>
+          </div>
+
+          <!-- antes/depois hero -->
+          <div style="padding: 76px 44px;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 24px;">
+              <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 42px; letter-spacing: -0.02em; text-transform: uppercase;">O antes e o depois</div>
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: #C99A80;">REGISTRO 042 · MIZUNO PRO · COURO VERMELHO</div>
+            </div>
+            <div style="position: relative; height: 470px; overflow: hidden; background: #241D19;">
+              <div style="position: absolute; inset: 0; background-image: repeating-linear-gradient(135deg, rgba(237,231,219,0.09) 0 7px, rgba(237,231,219,0) 7px 15px); display: flex; align-items: center; justify-content: center;">
+                <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: rgba(237,231,219,0.5); text-align: center; line-height: 1.8;">FOTO · ANTES<br>fundo escuro, luz lateral</div>
+              </div>
+              <div style="position: absolute; inset: 0; background: #33251F; background-image: repeating-linear-gradient(135deg, rgba(168,70,47,0.3) 0 7px, rgba(168,70,47,0) 7px 15px); display: flex; align-items: center; justify-content: center; animation: dsReveal 11s ease-in-out infinite;">
+                <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #E3B79C; text-align: center; line-height: 1.8;">FOTO · DEPOIS<br>fundo escuro, luz lateral</div>
+              </div>
+              <div style="position: absolute; top: 0; bottom: 0; width: 2px; background: #A8462F; animation: dsSeam 11s ease-in-out infinite;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 48px; height: 48px; border-radius: 50%; background: #A8462F; color: #FFF; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px;">↔</div>
+              </div>
+              <div style="position: absolute; left: 18px; top: 18px; background: #A8462F; color: #FFF; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-weight: 500; letter-spacing: 0.18em; padding: 8px 12px;">DEPOIS</div>
+              <div style="position: absolute; right: 18px; top: 18px; border: 1px solid rgba(237,231,219,0.4); color: rgba(237,231,219,0.8); font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.18em; padding: 8px 12px;">ANTES</div>
+            </div>
+          </div>
+
+          <!-- processo -->
+          <div style="padding: 0 44px 80px;">
+            <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 42px; letter-spacing: -0.02em; text-transform: uppercase; margin-bottom: 34px;">O caminho da peça</div>
+            <div style="display: flex; flex-direction: column;">
+              <div style="display: grid; grid-template-columns: 120px 1fr 1fr; gap: 28px; padding: 30px 0; border-top: 1px solid rgba(237,231,219,0.16); align-items: start;">
+                <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 46px; color: rgba(237,231,219,0.22); letter-spacing: -0.03em;">01</div>
+                <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.01em; text-transform: uppercase;">Revisão</div>
+                <div style="font-size: 15px; line-height: 1.65; color: rgba(237,231,219,0.72);">A luva é aberta e avaliada: costura, laçamento, couro, forma. Do diagnóstico sai o que realmente precisa ser feito.</div>
+              </div>
+              <div style="display: grid; grid-template-columns: 120px 1fr 1fr; gap: 28px; padding: 30px 0; border-top: 1px solid rgba(237,231,219,0.16); align-items: start;">
+                <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 46px; color: rgba(237,231,219,0.22); letter-spacing: -0.03em;">02</div>
+                <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.01em; text-transform: uppercase;">Reforma</div>
+                <div style="font-size: 15px; line-height: 1.65; color: rgba(237,231,219,0.72);">Limpeza, condicionamento, reparos, quebra e retrançamento — combinados conforme a luva pede.</div>
+              </div>
+              <div style="display: grid; grid-template-columns: 120px 1fr 1fr; gap: 28px; padding: 30px 0; border-top: 1px solid rgba(237,231,219,0.16); border-bottom: 1px solid rgba(237,231,219,0.16); align-items: start;">
+                <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 46px; color: #A8462F; letter-spacing: -0.03em;">03</div>
+                <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.01em; text-transform: uppercase;">Restauração</div>
+                <div style="font-size: 15px; line-height: 1.65; color: rgba(237,231,219,0.72);">Troca de couro, reconstrução de partes e personalização. A luva volta inteira, pronta para jogar.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- produtos -->
+          <div style="padding: 74px 44px; background: #1D1714;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 30px;">
+              <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 42px; letter-spacing: -0.02em; text-transform: uppercase;">Produtos</div>
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: #C99A80;">PEDIDO PELO WHATSAPP</div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+              <div style="background: #16120F; padding: 12px;"><div style="height: 130px; background-image: repeating-linear-gradient(135deg, rgba(237,231,219,0.1) 0 6px, rgba(237,231,219,0) 6px 13px); margin-bottom: 12px;"></div><div style="font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;">Creme hidratante</div></div>
+              <div style="background: #16120F; padding: 12px;"><div style="height: 130px; background-image: repeating-linear-gradient(135deg, rgba(237,231,219,0.1) 0 6px, rgba(237,231,219,0) 6px 13px); margin-bottom: 12px;"></div><div style="font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;">Cola spray batting</div></div>
+              <div style="background: #16120F; padding: 12px;"><div style="height: 130px; background-image: repeating-linear-gradient(135deg, rgba(237,231,219,0.1) 0 6px, rgba(237,231,219,0) 6px 13px); margin-bottom: 12px;"></div><div style="font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;">Cinto de couro</div></div>
+              <div style="background: #16120F; padding: 12px;"><div style="height: 130px; background-image: repeating-linear-gradient(135deg, rgba(237,231,219,0.1) 0 6px, rgba(237,231,219,0) 6px 13px); margin-bottom: 12px;"></div><div style="font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;">Cinto elástico</div></div>
+              <div style="background: #16120F; padding: 12px;"><div style="height: 130px; background-image: repeating-linear-gradient(135deg, rgba(237,231,219,0.1) 0 6px, rgba(237,231,219,0) 6px 13px); margin-bottom: 12px;"></div><div style="font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;">Protetor de punho</div></div>
+              <div style="background: #16120F; padding: 12px;"><div style="height: 130px; background-image: repeating-linear-gradient(135deg, rgba(237,231,219,0.1) 0 6px, rgba(237,231,219,0) 6px 13px); margin-bottom: 12px;"></div><div style="font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;">Protetor de garganta</div></div>
+              <div style="background: #16120F; padding: 12px;"><div style="height: 130px; background-image: repeating-linear-gradient(135deg, rgba(237,231,219,0.1) 0 6px, rgba(237,231,219,0) 6px 13px); margin-bottom: 12px;"></div><div style="font-size: 13.5px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;">Protetor de dedos</div></div>
+              <div style="background: #A8462F; color: #FFF; padding: 16px; display: flex; flex-direction: column; justify-content: flex-end;"><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 22px; line-height: 1.05; text-transform: uppercase;">Ver tudo</div><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; margin-top: 8px;">→ WPP</div></div>
+            </div>
+          </div>
+
+          <div style="padding: 76px 44px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: end;">
+            <div style="display: flex; flex-direction: column; gap: 18px;">
+              <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 52px; line-height: 0.94; letter-spacing: -0.03em; text-transform: uppercase;">Manda uma foto<br>da sua luva</div>
+              <div style="font-size: 15.5px; line-height: 1.6; color: rgba(237,231,219,0.72); max-width: 430px;">Eu digo o que ela precisa, o prazo e como enviar. Sem compromisso.</div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <img src="assets/mark-color.png" alt="" style="display: block; height: 100px; width: auto; align-self: flex-start; margin-bottom: 12px;">
+              <a href="{{ waHref }}" style="background: #A8462F; color: #FFF; padding: 17px; text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em;">+55 11 91753-8155</a>
+              <div style="border: 1px solid rgba(237,231,219,0.35); padding: 17px; text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em;">@DANSHIRA.GLOVECARE</div>
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: rgba(237,231,219,0.45); line-height: 1.8; padding-top: 6px;">JABAQUARA · SÃO PAULO · SP</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- mobile 1b -->
+        <div style="width: 390px; background: #16120F; color: #EDE7DB; border-radius: 34px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.4);">
+          <div style="height: 34px;"></div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 20px 14px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <img src="assets/mark-white.png" alt="" style="display: block; height: 28px; width: auto;">
+              <span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 15px; letter-spacing: -0.01em;">DAN SHIRA</span>
+            </div>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 18px;">≡</span>
+          </div>
+          <div style="position: relative; height: 460px; background-image: url('uploads/fotos-1785277512917.png'); background-size: cover; background-position: 48% 40%;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,18,15,0.4) 0%, rgba(22,18,15,0.3) 35%, rgba(22,18,15,0.97) 100%);"></div>
+            <div style="position: absolute; inset: 0; padding: 24px 20px 26px; display: flex; flex-direction: column; justify-content: flex-end; gap: 16px;">
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: #C99A80;">DESDE 2018 · SÃO PAULO</div>
+              <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 50px; line-height: 0.88; letter-spacing: -0.03em; text-transform: uppercase;">Sua luva<br>nova de<br>novo</div>
+              <div style="font-size: 14.5px; line-height: 1.55; color: rgba(237,231,219,0.78);">Revisão, reforma e restauração — uma peça por vez.</div>
+              <div style="background: #A8462F; color: #FFF; padding: 17px; text-align: center; font-size: 12.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;">Pedir orçamento</div>
+            </div>
+          </div>
+          <div style="padding: 30px 20px; display: flex; flex-direction: column; gap: 16px;">
+            <div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.02em; text-transform: uppercase;">Antes / depois</div>
+            <div style="position: relative; height: 280px; overflow: hidden; background: #241D19;">
+              <div style="position: absolute; inset: 0; background-image: repeating-linear-gradient(135deg, rgba(237,231,219,0.09) 0 7px, rgba(237,231,219,0) 7px 15px);"></div>
+              <div style="position: absolute; inset: 0; background: #33251F; background-image: repeating-linear-gradient(135deg, rgba(168,70,47,0.3) 0 7px, rgba(168,70,47,0) 7px 15px); animation: dsReveal 11s ease-in-out infinite;"></div>
+              <div style="position: absolute; top: 0; bottom: 0; width: 2px; background: #A8462F; animation: dsSeam 11s ease-in-out infinite;"></div>
+              <div style="position: absolute; left: 14px; top: 14px; background: #A8462F; color: #FFF; font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.18em; padding: 6px 9px;">DEPOIS</div>
+              <div style="position: absolute; right: 14px; top: 14px; border: 1px solid rgba(237,231,219,0.4); font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.18em; padding: 6px 9px;">ANTES</div>
+            </div>
+            <div style="display: flex; flex-direction: column; margin-top: 10px;">
+              <div style="display: grid; grid-template-columns: 52px 1fr; gap: 14px; padding: 18px 0; border-top: 1px solid rgba(237,231,219,0.16);"><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 28px; color: rgba(237,231,219,0.22);">01</div><div><div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 20px; text-transform: uppercase;">Revisão</div><div style="font-size: 14px; line-height: 1.55; color: rgba(237,231,219,0.7); margin-top: 4px;">O diagnóstico vem antes do orçamento.</div></div></div>
+              <div style="display: grid; grid-template-columns: 52px 1fr; gap: 14px; padding: 18px 0; border-top: 1px solid rgba(237,231,219,0.16);"><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 28px; color: rgba(237,231,219,0.22);">02</div><div><div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 20px; text-transform: uppercase;">Reforma</div><div style="font-size: 14px; line-height: 1.55; color: rgba(237,231,219,0.7); margin-top: 4px;">Limpeza, condicionamento, reparos, quebra.</div></div></div>
+              <div style="display: grid; grid-template-columns: 52px 1fr; gap: 14px; padding: 18px 0; border-top: 1px solid rgba(237,231,219,0.16); border-bottom: 1px solid rgba(237,231,219,0.16);"><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 28px; color: #A8462F;">03</div><div><div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 20px; text-transform: uppercase;">Restauração</div><div style="font-size: 14px; line-height: 1.55; color: rgba(237,231,219,0.7); margin-top: 4px;">Troca de couro e reconstrução.</div></div></div>
+            </div>
+          </div>
+          <div style="position: sticky; bottom: 0; background: #A8462F; color: #FFF; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em;">WHATSAPP</span>
+            <span style="font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">Chamar agora</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════ 1c — REGISTRO ══════════════════ -->
+    <div id="1c" style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; background: #F1ECE2; color: #23211D; padding: 5px 9px;">1c</span>
+        <span style="font-family: Archivo, sans-serif; font-weight: 600; font-size: 17px; color: #F6F3EC;">Registro</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #D6D1C6;">ficha técnica · monoespaçada · precisão como prova de qualidade</span>
+      </div>
+
+      <div style="display: flex; gap: 28px; align-items: flex-start;">
+        <div style="width: 900px; background: #EDE9DF; color: #23211D; background-image: linear-gradient(rgba(63,74,58,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(63,74,58,0.07) 1px, transparent 1px); background-size: 28px 28px; box-shadow: 0 24px 60px rgba(0,0,0,0.28);">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 18px 40px; border-bottom: 1px solid #3F4A3A; background: #EDE9DF;">
+            <div style="display: flex; align-items: center; gap: 12px; flex: 0 0 auto; white-space: nowrap;">
+              <img src="assets/logo-lockup.png" alt="Dan Shira Craftsman" style="display: block; height: 34px; width: auto;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: #43263A;">SP</span>
+            </div>
+            <div style="display: flex; gap: 20px; flex: 0 0 auto; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: #3F4A3A; white-space: nowrap;">
+              <span>[ SERVIÇOS ]</span><span>[ REGISTROS ]</span><span>[ PRODUTOS ]</span><span>[ CONTATO ]</span>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 320px; border-bottom: 1px solid rgba(63,74,58,0.35);">
+            <div style="padding: 64px 40px 56px; display: flex; flex-direction: column; gap: 24px; border-right: 1px solid rgba(63,74,58,0.35);">
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: #43263A;">MANUTENÇÃO E RESTAURAÇÃO DE LUVAS — EST. 2018</div>
+              <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 58px; line-height: 1.0; letter-spacing: -0.035em;">Sua luva<br>nova de novo.</div>
+              <div style="max-width: 430px; font-size: 15.5px; line-height: 1.7; color: #4A473F; text-wrap: pretty;">Cada luva entra com um número, sai com uma ficha. Você sabe exatamente o que foi feito, com que material e por quê — porque equipamento bom se cuida com método.</div>
+              <div style="display: flex; gap: 10px; padding-top: 6px;">
+                <div style="background: #3F4A3A; color: #EDE9DF; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; padding: 15px 22px;">ABRIR ORÇAMENTO →</div>
+                <div style="border: 1px solid #3F4A3A; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; padding: 15px 22px;">VER REGISTROS</div>
+              </div>
+            </div>
+            <div style="padding: 28px 26px; display: flex; flex-direction: column; gap: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #3F4A3A;">
+              <div style="letter-spacing: 0.16em; color: #43263A; padding-bottom: 14px;">FICHA DO ATELIÊ</div>
+              <div style="display: flex; justify-content: space-between; padding: 10px 0; border-top: 1px dotted rgba(63,74,58,0.5);"><span style="opacity: 0.7;">LOCAL</span><span>JABAQUARA / SP</span></div>
+              <div style="display: flex; justify-content: space-between; padding: 10px 0; border-top: 1px dotted rgba(63,74,58,0.5);"><span style="opacity: 0.7;">ATIVO DESDE</span><span>2018</span></div>
+              <div style="display: flex; justify-content: space-between; padding: 10px 0; border-top: 1px dotted rgba(63,74,58,0.5);"><span style="opacity: 0.7;">ATENDE</span><span>BRASIL (ENVIO)</span></div>
+              <div style="display: flex; justify-content: space-between; padding: 10px 0; border-top: 1px dotted rgba(63,74,58,0.5);"><span style="opacity: 0.7;">ORÇAMENTO</span><span>WHATSAPP</span></div>
+              <div style="display: flex; justify-content: space-between; padding: 10px 0; border-top: 1px dotted rgba(63,74,58,0.5); border-bottom: 1px dotted rgba(63,74,58,0.5);"><span style="opacity: 0.7;">PRAZO</span><span>ARTESANAL</span></div>
+              <div style="margin-top: 20px; height: 150px; background-image: url('uploads/fotos-1785277512917.png'); background-size: cover; background-position: center; border: 1px solid rgba(63,74,58,0.4);"></div>
+              <div style="padding-top: 10px; font-size: 10.5px; letter-spacing: 0.1em; opacity: 0.7;">FIG. 1 — BANCADA E FERRAMENTAL</div>
+            </div>
+          </div>
+
+          <!-- processo tabela -->
+          <div style="padding: 60px 40px;">
+            <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 30px;">
+              <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 34px; letter-spacing: -0.025em;">O método</div>
+              <div style="flex: 1; height: 1px; background: rgba(63,74,58,0.4);"></div>
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: #43263A;">3 ETAPAS · 4 SERVIÇOS</div>
+            </div>
+            <div style="border: 1px solid #3F4A3A; background: #F3F0E8;">
+              <div style="display: grid; grid-template-columns: 90px 200px 1fr; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.14em; color: #EDE9DF; background: #3F4A3A;">
+                <div style="padding: 11px 16px;">ETAPA</div><div style="padding: 11px 16px;">NOME</div><div style="padding: 11px 16px;">O QUE ACONTECE</div>
+              </div>
+              <div style="display: grid; grid-template-columns: 90px 200px 1fr; border-top: 1px solid rgba(63,74,58,0.3); align-items: baseline;">
+                <div style="padding: 20px 16px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #43263A;">01</div>
+                <div style="padding: 20px 16px; font-family: Archivo, sans-serif; font-weight: 700; font-size: 19px;">Revisão</div>
+                <div style="padding: 20px 16px; font-size: 14.5px; line-height: 1.6; color: #4A473F;">Luva aberta e avaliada ponto a ponto. Sai um laudo com o que precisa, o que pode esperar e o prazo real.</div>
+              </div>
+              <div style="display: grid; grid-template-columns: 90px 200px 1fr; border-top: 1px solid rgba(63,74,58,0.3); align-items: baseline;">
+                <div style="padding: 20px 16px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #43263A;">02</div>
+                <div style="padding: 20px 16px; font-family: Archivo, sans-serif; font-weight: 700; font-size: 19px;">Reforma</div>
+                <div style="padding: 20px 16px; font-size: 14.5px; line-height: 1.6; color: #4A473F;">Execução dos serviços indicados no laudo, na ordem certa, com registro fotográfico de cada etapa.</div>
+              </div>
+              <div style="display: grid; grid-template-columns: 90px 200px 1fr; border-top: 1px solid rgba(63,74,58,0.3); align-items: baseline;">
+                <div style="padding: 20px 16px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #43263A;">03</div>
+                <div style="padding: 20px 16px; font-family: Archivo, sans-serif; font-weight: 700; font-size: 19px;">Restauração</div>
+                <div style="padding: 20px 16px; font-size: 14.5px; line-height: 1.6; color: #4A473F;">Quando a peça pede mais: troca de couro, reconstrução de partes, personalização e nova quebra.</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #3F4A3A;">
+              <div style="border: 1px dashed rgba(63,74,58,0.5); padding: 14px;">A · LIMPEZA</div>
+              <div style="border: 1px dashed rgba(63,74,58,0.5); padding: 14px;">B · CONDICIONAMENTO</div>
+              <div style="border: 1px dashed rgba(63,74,58,0.5); padding: 14px;">C · REPAROS</div>
+              <div style="border: 1px dashed rgba(63,74,58,0.5); padding: 14px;">D · QUEBRA</div>
+            </div>
+          </div>
+
+          <!-- registro antes/depois -->
+          <div style="padding: 0 40px 60px;">
+            <div style="border: 1px solid #3F4A3A; background: #F3F0E8;">
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: #3F4A3A; color: #EDE9DF; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.14em;">
+                <span>REGISTRO Nº 0431 · RESTAURAÇÃO COMPLETA</span><span>ANTES ↔ DEPOIS</span>
+              </div>
+              <div style="position: relative; height: 400px; overflow: hidden; background: #DCD6C7; margin: 16px; border: 1px solid rgba(63,74,58,0.4);">
+                <div style="position: absolute; inset: 0; background-image: repeating-linear-gradient(135deg, rgba(35,33,29,0.1) 0 7px, rgba(35,33,29,0) 7px 15px); display: flex; align-items: center; justify-content: center;">
+                  <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #6A6559;">FOTO ANTES</div>
+                </div>
+                <div style="position: absolute; inset: 0; background: #C4CBB9; background-image: repeating-linear-gradient(135deg, rgba(63,74,58,0.25) 0 7px, rgba(63,74,58,0) 7px 15px); display: flex; align-items: center; justify-content: center; animation: dsReveal 11s ease-in-out infinite;">
+                  <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #3F4A3A;">FOTO DEPOIS</div>
+                </div>
+                <div style="position: absolute; top: 0; bottom: 0; width: 1px; background: #43263A; animation: dsSeam 11s ease-in-out infinite;">
+                  <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); background: #43263A; color: #EDE9DF; font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.12em; padding: 4px 7px; white-space: nowrap;">↔ COMPARAR</div>
+                </div>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #3F4A3A; border-top: 1px dotted rgba(63,74,58,0.5);">
+                <div style="padding: 14px 16px; border-right: 1px dotted rgba(63,74,58,0.5);"><span style="opacity: 0.65;">SERVIÇOS:</span> LIMPEZA · REPAROS · QUEBRA</div>
+                <div style="padding: 14px 16px; border-right: 1px dotted rgba(63,74,58,0.5);"><span style="opacity: 0.65;">COURO:</span> KIP ORIGINAL</div>
+                <div style="padding: 14px 16px;"><span style="opacity: 0.65;">ETAPA:</span> 03 RESTAURAÇÃO</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- produtos lista -->
+          <div style="padding: 0 40px 60px;">
+            <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 24px;">
+              <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 34px; letter-spacing: -0.025em;">Produtos</div>
+              <div style="flex: 1; height: 1px; background: rgba(63,74,58,0.4);"></div>
+              <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: #43263A;">07 ITENS</div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #23211D;">
+              <div style="display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-top: 1px solid rgba(63,74,58,0.3);"><span>CREME HIDRATANTE</span><span style="opacity: 0.55;">CUIDADO</span></div>
+              <div style="display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-top: 1px solid rgba(63,74,58,0.3);"><span>COLA SPRAY BATTING</span><span style="opacity: 0.55;">ADERÊNCIA</span></div>
+              <div style="display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-top: 1px solid rgba(63,74,58,0.3);"><span>CINTO DE COURO</span><span style="opacity: 0.55;">VESTUÁRIO</span></div>
+              <div style="display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-top: 1px solid rgba(63,74,58,0.3);"><span>CINTO ELÁSTICO</span><span style="opacity: 0.55;">VESTUÁRIO</span></div>
+              <div style="display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-top: 1px solid rgba(63,74,58,0.3);"><span>PROTETOR DE PUNHO</span><span style="opacity: 0.55;">PROTEÇÃO</span></div>
+              <div style="display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-top: 1px solid rgba(63,74,58,0.3);"><span>PROTETOR DE GARGANTA</span><span style="opacity: 0.55;">PROTEÇÃO</span></div>
+              <div style="display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-top: 1px solid rgba(63,74,58,0.3); border-bottom: 1px solid rgba(63,74,58,0.3);"><span>PROTETOR DE DEDOS</span><span style="opacity: 0.55;">PROTEÇÃO</span></div>
+              <div style="display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-top: 1px solid rgba(63,74,58,0.3); border-bottom: 1px solid rgba(63,74,58,0.3); color: #43263A;"><span>PEDIR PELO WHATSAPP</span><span>→</span></div>
+            </div>
+          </div>
+
+          <div style="background: #3F4A3A; color: #EDE9DF; padding: 56px 40px; display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: end;">
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 40px; line-height: 1.02; letter-spacing: -0.03em;">Abra um registro<br>para a sua luva.</div>
+              <div style="font-size: 14.5px; line-height: 1.65; opacity: 0.8; max-width: 420px;">Manda uma foto no WhatsApp. Volto com o diagnóstico, os serviços indicados e o prazo — antes de qualquer combinado.</div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.1em;">
+              <img src="assets/mark-white.png" alt="" style="display: block; height: 76px; width: auto; align-self: flex-start; opacity: 0.9; margin-bottom: 10px;">
+              <a href="{{ waHref }}" style="background: #EDE9DF; color: #3F4A3A; padding: 15px; text-align: center;">+55 11 91753-8155</a>
+              <div style="border: 1px solid rgba(237,233,223,0.4); padding: 15px; text-align: center;">@DANSHIRA.GLOVECARE</div>
+              <div style="opacity: 0.6; line-height: 1.8; padding-top: 6px;">JABAQUARA · SÃO PAULO · SP</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- mobile 1c -->
+        <div style="width: 390px; background: #EDE9DF; color: #23211D; background-image: linear-gradient(rgba(63,74,58,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(63,74,58,0.07) 1px, transparent 1px); background-size: 28px 28px; border-radius: 34px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.28);">
+          <div style="height: 34px;"></div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 20px 14px; border-bottom: 1px solid #3F4A3A;">
+            <img src="assets/logo-lockup.png" alt="Dan Shira Craftsman" style="display: block; height: 28px; width: auto;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #43263A;">[ MENU ]</span>
+          </div>
+          <div style="padding: 30px 20px; display: flex; flex-direction: column; gap: 18px;">
+            <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.16em; color: #43263A;">EST. 2018 · JABAQUARA / SP</div>
+            <div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 42px; line-height: 1.0; letter-spacing: -0.035em;">Sua luva<br>nova de novo.</div>
+            <div style="font-size: 15px; line-height: 1.65; color: #4A473F;">Entra com um número, sai com uma ficha do que foi feito.</div>
+            <div style="background: #3F4A3A; color: #EDE9DF; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; padding: 16px; text-align: center;">ABRIR ORÇAMENTO →</div>
+            <div style="display: flex; flex-direction: column; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #3F4A3A; margin-top: 4px;">
+              <div style="display: flex; justify-content: space-between; padding: 9px 0; border-top: 1px dotted rgba(63,74,58,0.5);"><span style="opacity: 0.7;">ATENDE</span><span>BRASIL (ENVIO)</span></div>
+              <div style="display: flex; justify-content: space-between; padding: 9px 0; border-top: 1px dotted rgba(63,74,58,0.5); border-bottom: 1px dotted rgba(63,74,58,0.5);"><span style="opacity: 0.7;">ORÇAMENTO</span><span>WHATSAPP</span></div>
+            </div>
+          </div>
+          <div style="padding: 0 20px 30px;">
+            <div style="border: 1px solid #3F4A3A; background: #F3F0E8;">
+              <div style="padding: 10px 12px; background: #3F4A3A; color: #EDE9DF; font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.12em;">REGISTRO Nº 0431 · ANTES ↔ DEPOIS</div>
+              <div style="position: relative; height: 270px; overflow: hidden; background: #DCD6C7; margin: 12px; border: 1px solid rgba(63,74,58,0.4);">
+                <div style="position: absolute; inset: 0; background-image: repeating-linear-gradient(135deg, rgba(35,33,29,0.1) 0 7px, rgba(35,33,29,0) 7px 15px);"></div>
+                <div style="position: absolute; inset: 0; background: #C4CBB9; background-image: repeating-linear-gradient(135deg, rgba(63,74,58,0.25) 0 7px, rgba(63,74,58,0) 7px 15px); animation: dsReveal 11s ease-in-out infinite;"></div>
+                <div style="position: absolute; top: 0; bottom: 0; width: 1px; background: #43263A; animation: dsSeam 11s ease-in-out infinite;"></div>
+              </div>
+              <div style="padding: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #3F4A3A; border-top: 1px dotted rgba(63,74,58,0.5);"><span style="opacity: 0.65;">SERVIÇOS:</span> LIMPEZA · REPAROS · QUEBRA</div>
+            </div>
+          </div>
+          <div style="padding: 0 20px 30px;">
+            <div style="border: 1px solid #3F4A3A; background: #F3F0E8;">
+              <div style="padding: 10px 12px; background: #3F4A3A; color: #EDE9DF; font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em;">O MÉTODO · 3 ETAPAS</div>
+              <div style="display: grid; grid-template-columns: 44px 1fr; padding: 14px 12px; border-top: 1px solid rgba(63,74,58,0.3);"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #43263A;">01</div><div><div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 17px;">Revisão</div><div style="font-size: 13.5px; line-height: 1.5; color: #4A473F;">Laudo antes do orçamento.</div></div></div>
+              <div style="display: grid; grid-template-columns: 44px 1fr; padding: 14px 12px; border-top: 1px solid rgba(63,74,58,0.3);"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #43263A;">02</div><div><div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 17px;">Reforma</div><div style="font-size: 13.5px; line-height: 1.5; color: #4A473F;">Serviços na ordem certa, com registro.</div></div></div>
+              <div style="display: grid; grid-template-columns: 44px 1fr; padding: 14px 12px; border-top: 1px solid rgba(63,74,58,0.3);"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #43263A;">03</div><div><div style="font-family: Archivo, sans-serif; font-weight: 700; font-size: 17px;">Restauração</div><div style="font-size: 13.5px; line-height: 1.5; color: #4A473F;">Troca de couro e reconstrução.</div></div></div>
+            </div>
+          </div>
+          <div style="position: sticky; bottom: 0; background: #3F4A3A; color: #EDE9DF; padding: 15px 20px; display: flex; align-items: center; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em;">
+            <span>WHATSAPP</span><span>ABRIR CONVERSA →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;waNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5511917538155&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contato&quot;}}">
+class Component extends DCLogic {
+  state = { c: 0, a: 0, autoD: true, autoM: true };
+  els = { D: {}, M: {} };
+
+  CASES = [
+    {
+      tab: 'RAWLINGS · RESTAURAÇÃO',
+      reg: 'REGISTRO 041',
+      peca: 'RAWLINGS 11.75" — INFIELD',
+      servico: 'RESTAURAÇÃO COMPLETA',
+      etapa: '03 · RESTAURAÇÃO',
+      resumo: 'Couro esverdeado de tanto uso e laçamento vencido. Recoloração integral, laçamento novo em vermelho, reparos de costura e forma recuperada.',
+      nota: 'Seis ângulos do mesmo serviço — troque ao lado e arraste a linha.',
+      angles: [['raw-5','DORSO'],['raw-4','PALMA'],['raw-2','DEDOS'],['raw-3','WEB'],['raw-1','LATERAL'],['raw-6','TOPO']]
+    },
+    {
+      tab: 'ZETT 1ª BASE · REFORMA',
+      reg: 'REGISTRO 038',
+      peca: 'ZETT DYNA — LUVA DE 1ª BASE',
+      servico: 'REFORMA E RECOLORAÇÃO',
+      etapa: '02 · REFORMA',
+      resumo: 'Azul desbotado e couro seco. Limpeza profunda, recoloração em duas camadas, condicionamento e laçamento reaproveitado.',
+      nota: 'Quatro ângulos registrados na mesma bancada, mesma luz.',
+      angles: [['zett-1','FRENTE'],['zett-2','DORSO'],['zett-3','LATERAL'],['zett-4','BOLSO']]
+    },
+    {
+      tab: 'MIZUNO PRO · FORMA',
+      reg: 'REGISTRO 044',
+      peca: 'MIZUNO PRO — COURO VERMELHO',
+      servico: 'CORREÇÃO DE ESTRUTURA',
+      etapa: '02 · REFORMA',
+      resumo: 'A luva havia cedido no topo e afundado no bolso. Reforço interno, reconstrução da forma e nova quebra.',
+      nota: 'Linha vermelha: forma cedida. Linha verde: forma recuperada.',
+      angles: [['miz-1','TOPO'],['miz-2','BOLSO']]
+    },
+    {
+      tab: 'REBATIDA · RECONSTRUÇÃO',
+      reg: 'REGISTRO 047',
+      peca: 'LUVA DE REBATIDA — COURO PRETO',
+      servico: 'RECONSTRUÇÃO TOTAL',
+      etapa: '03 · RESTAURAÇÃO',
+      resumo: 'Chegou em pedaços, com a palma desintegrada. Toda a face de couro foi refeita peça por peça sobre a estrutura original.',
+      nota: 'Caso limite: quando parece perdida, ainda dá.',
+      angles: [['bat-1','PALMA']]
+    }
+  ];
+
+  pick(c, a) { this.setState({ c: c, a: a }); }
+
+  imgs = { bD: null, aD: null, bM: null, aM: null, th: [], thM: [] };
+
+  componentDidMount() { this.syncImgs(); }
+  componentDidUpdate() { this.syncImgs(); }
+
+  paths() {
+    const cur = this.CASES[Math.min(this.state.c, this.CASES.length - 1)];
+    const ai = Math.min(this.state.a, cur.angles.length - 1);
+    const p = (slug, side) => 'assets/ba/' + slug + '-' + side + '.png';
+    return {
+      before: p(cur.angles[ai][0], 'antes'),
+      after: p(cur.angles[ai][0], 'depois'),
+      thumbs: cur.angles.map((a) => p(a[0], 'depois'))
+    };
+  }
+
+  syncImgs() {
+    const q = this.paths();
+    if (this.imgs.bD) this.imgs.bD.src = q.before;
+    if (this.imgs.aD) this.imgs.aD.src = q.after;
+    if (this.imgs.bM) this.imgs.bM.src = q.before;
+    if (this.imgs.aM) this.imgs.aM.src = q.after;
+    this.imgs.th.forEach((el, i) => { if (el && q.thumbs[i]) el.src = q.thumbs[i]; });
+    this.imgs.thM.forEach((el, i) => { if (el && q.thumbs[i]) el.src = q.thumbs[i]; });
+  }
+
+  stopAuto(key) {
+    const e = this.els[key] || {};
+    if (e.fill) e.fill.style.animation = 'none';
+    if (e.line) e.line.style.animation = 'none';
+  }
+
+  setPos(key, p) {
+    const e = this.els[key];
+    if (!e) return;
+    if (e.fill) e.fill.style.width = p.toFixed(2) + '%';
+    if (e.line) e.line.style.left = p.toFixed(2) + '%';
+  }
+
+  slider(key) {
+    const upd = (ev, el) => {
+      const r = el.getBoundingClientRect();
+      this.setPos(key, Math.max(1.5, Math.min(98.5, ((ev.clientX - r.left) / r.width) * 100)));
+    };
+    return {
+      refFill: (el) => { this.els[key].fill = el; },
+      refLine: (el) => { this.els[key].line = el; },
+      onPointerDown: (e) => {
+        this._drag = key;
+        this.stopAuto(key);
+        if (this.state['auto' + key]) this.setState({ ['auto' + key]: false });
+        if (e.currentTarget.setPointerCapture) e.currentTarget.setPointerCapture(e.pointerId);
+        upd(e, e.currentTarget);
+      },
+      onPointerMove: (e) => { if (this._drag === key) upd(e, e.currentTarget); },
+      onPointerUp: () => { this._drag = null; },
+      onPointerCancel: () => { this._drag = null; }
+    };
+  }
+
+  renderVals() {
+    const num = (this.props.waNumber ?? "5511917538155").replace(/\D/g, "");
+    const ci = Math.min(this.state.c, this.CASES.length - 1);
+    const cur = this.CASES[ci];
+    const ai = Math.min(this.state.a, cur.angles.length - 1);
+    const path = (slug, side) => 'assets/ba/' + slug + '-' + side + '.png';
+
+    return {
+      waHref: "https://wa.me/" + num,
+      caseInfo: cur,
+      totalCasos: this.CASES.length + ' CASOS',
+      angleLabel: cur.angles[ai][1],
+      angleCount: String(ai + 1).padStart(2, '0') + ' / ' + String(cur.angles.length).padStart(2, '0'),
+      beforeSrc: path(cur.angles[ai][0], 'antes'),
+      afterSrc: path(cur.angles[ai][0], 'depois'),
+      tabs: this.CASES.map((c, i) => ({
+        label: c.tab,
+        pick: () => this.pick(i, 0),
+        bg: i === ci ? '#A8462F' : 'transparent',
+        color: i === ci ? '#FFFFFF' : 'rgba(237,231,219,0.66)',
+        border: i === ci ? '#A8462F' : 'rgba(237,231,219,0.24)'
+      })),
+      refBD: (el) => { this.imgs.bD = el; },
+      refAD: (el) => { this.imgs.aD = el; },
+      refBM: (el) => { this.imgs.bM = el; },
+      refAM: (el) => { this.imgs.aM = el; },
+      angles: cur.angles.map((a, i) => ({
+        label: a[1],
+        ref: (el) => { this.imgs.th[i] = el; },
+        refM: (el) => { this.imgs.thM[i] = el; },
+        pick: () => this.setState({ a: i }),
+        border: i === ai ? '#A8462F' : 'rgba(237,231,219,0.18)',
+        opacity: i === ai ? 1 : 0.55
+      })),
+      hintD: this.state.autoD ? '▶ COMPARANDO SOZINHO · ARRASTE PARA ASSUMIR' : 'ARRASTE A LINHA PARA COMPARAR',
+      sd: this.slider('D'),
+      sm: this.slider('M')
+    };
+  }
+}
+</script>
+</body>
+</html>
