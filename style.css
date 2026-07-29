@@ -22,6 +22,15 @@
 
   --pad-section-x: clamp(20px, 1.5px + 4.7vw, 44px);
   --pad-section-y: clamp(28px, 8px + 6vw, 76px);
+
+  /* O mock aprovado tem 900px. A página é uma coluna única com largura
+     máxima para manter a densidade do desenho em monitores largos. */
+  --content-max: 1120px;
+}
+
+.page {
+  max-width: var(--content-max);
+  margin-inline: auto;
 }
 
 * { box-sizing: border-box; }
@@ -246,9 +255,10 @@ h1, h2, h3, p, dl, dd { margin: 0; }
   color: #FFF;
 }
 
+/* proporção do mock: comparador 500px : coluna de info 284px */
 .ba-layout {
   display: grid;
-  grid-template-columns: minmax(280px, 500px) 1fr;
+  grid-template-columns: 1.76fr 1fr;
   gap: 28px;
   align-items: start;
 }
@@ -259,13 +269,11 @@ h1, h2, h3, p, dl, dd { margin: 0; }
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
-  max-width: 500px;
   overflow: hidden;
   background: #241D19;
   cursor: ew-resize;
   touch-action: none;
   user-select: none;
-  container-type: inline-size;
 }
 .ba-slider img {
   -webkit-user-drag: none;
@@ -285,11 +293,17 @@ h1, h2, h3, p, dl, dd { margin: 0; }
   animation: dsWipe 9s ease-in-out infinite;
 }
 .ba-fill-clip { position: absolute; inset: 0; overflow: hidden; }
+/* A foto do "depois" tem de ficar do tamanho do comparador, não da máscara.
+   O comparador é quadrado, então height:100% dá a medida certa — e o
+   max-width:none é obrigatório, senão o `img{max-width:100%}` global a
+   comprime à largura da máscara e o object-fit amplia a foto. */
 .ba-fill-clip img {
   position: absolute;
   top: 0; left: 0;
-  width: 100cqi;
-  height: 100cqi;
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1 / 1;
+  max-width: none;
   object-fit: cover;
 }
 .ba-line {
@@ -486,7 +500,6 @@ h1, h2, h3, p, dl, dd { margin: 0; }
   background: var(--base-corte);
   padding: 0 6px;
 }
-.mat-ruler span:last-child { display: none; }
 
 .mat-content { padding: clamp(28px, 8.4px + 5.8vw, 66px) var(--pad-section-x) clamp(30px, 8.5px + 6.4vw, 74px); }
 .mat-content h2, .woodwork-intro h2 { color: var(--creme); }
@@ -503,7 +516,8 @@ h1, h2, h3, p, dl, dd { margin: 0; }
   grid-template-columns: 1.55fr 1fr 1fr;
   gap: 12px;
   margin-bottom: 12px;
-  align-items: start;
+  /* stretch (padrão) é o comportamento do mock: as colunas ficam da mesma
+     altura e as bordas dos cards alinham embaixo. */
 }
 .product-card {
   background: var(--preto-couro);
@@ -603,9 +617,8 @@ img.ratio-1-1 { aspect-ratio: 1/1; object-fit: cover; width: 100%; }
   align-items: flex-end;
   justify-content: space-between;
   gap: 30px;
-  flex-wrap: wrap;
 }
-.woodwork-intro { display: flex; flex-direction: column; gap: 10px; }
+.woodwork-intro { display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto; }
 .woodwork-intro h2 {
   font-weight: 800;
   font-size: clamp(24px, 16.4px + 1.96vw, 34px);
@@ -624,6 +637,8 @@ img.ratio-1-1 { aspect-ratio: 1/1; object-fit: cover; width: 100%; }
   gap: 8px;
   flex-wrap: wrap;
   justify-content: flex-end;
+  flex: 0 1 auto;
+  min-width: 0;
 }
 .chips span {
   font-family: 'IBM Plex Mono', monospace;
@@ -738,7 +753,8 @@ img.ratio-1-1 { aspect-ratio: 1/1; object-fit: cover; width: 100%; }
 
 /* ================= breakpoints ================= */
 
-@media (max-width: 960px) {
+/* O mock desktop tem 900px, então a grade de desktop precisa valer até ali. */
+@media (max-width: 880px) {
   .product-grid-main { grid-template-columns: 1fr 1fr; }
   .product-card-lg { grid-column: span 2; }
   .product-grid-5 { grid-template-columns: repeat(3, 1fr); }
@@ -765,6 +781,12 @@ img.ratio-1-1 { aspect-ratio: 1/1; object-fit: cover; width: 100%; }
 
   .ba-layout { grid-template-columns: 1fr; }
   .ba-slider-col { max-width: 100%; }
+
+  .woodwork-head { flex-direction: column; align-items: flex-start; gap: 18px; }
+  .chips { justify-content: flex-start; }
+
+  /* o mock mobile mostra só o rótulo da esquerda na régua */
+  .mat-ruler span:last-child { display: none; }
 
   .cta { grid-template-columns: 1fr; align-items: start; gap: 26px; }
 
