@@ -1,186 +1,131 @@
 (function () {
   'use strict';
 
-  var CASES = [
-    {
-      reg: 'CASO 041',
-      tabLabel: '041',
-      peca: 'RAWLINGS 11.75" INFIELD',
-      servico: 'RESTAURAÇÃO COMPLETA',
-      etapa: 'TROCA DE COURO + RELAÇAMENTO',
-      resumo: 'Couro ressecado e forma perdida depois de anos de uso. Troquei o couro do dedo e do dorso, relacei a luva inteira e recuperei a curva do bolso.',
-      nota: '8 ANOS DE USO ANTES DE CHEGAR AQUI',
-      angles: [
-        { slug: 'raw-5', label: 'DORSO' },
-        { slug: 'raw-4', label: 'PALMA' },
-        { slug: 'raw-2', label: 'DEDOS' },
-        { slug: 'raw-3', label: 'WEB' },
-        { slug: 'raw-1', label: 'LATERAL' },
-        { slug: 'raw-6', label: 'TOPO' }
-      ]
-    },
-    {
-      reg: 'CASO 038',
-      tabLabel: '038',
-      peca: 'ZETT DYNA 1ª BASE',
-      servico: 'REFORMA E RECOLORAÇÃO',
-      etapa: 'LIMPEZA + HIDRATAÇÃO + TINGIMENTO',
-      resumo: 'Couro bom, cor gasta pelo sol. Limpei, hidratei fundo e retingi mantendo o relevo original da luva.',
-      nota: 'COURO ORIGINAL PRESERVADO, SÓ A COR FOI RECUPERADA',
-      angles: [
-        { slug: 'zett-1', label: 'FRENTE' },
-        { slug: 'zett-2', label: 'DORSO' },
-        { slug: 'zett-3', label: 'LATERAL' },
-        { slug: 'zett-4', label: 'BOLSO' }
-      ]
-    },
-    {
-      reg: 'CASO 044',
-      tabLabel: '044',
-      peca: 'MIZUNO PRO COURO VERMELHO',
-      servico: 'CORREÇÃO DE ESTRUTURA',
-      etapa: 'REFORÇO DE FORMA + RELAÇAMENTO',
-      resumo: 'O bolso tinha cedido e não fechava mais. Reforcei a estrutura interna e refiz o laçamento até a forma voltar a segurar a bola.',
-      nota: 'LINHA VERMELHA = FORMA CEDIDA · LINHA VERDE = FORMA RECUPERADA',
-      angles: [
-        { slug: 'miz-1', label: 'TOPO' },
-        { slug: 'miz-2', label: 'BOLSO' }
-      ]
-    },
-    {
-      reg: 'CASO 047',
-      tabLabel: '047',
-      peca: 'LUVA DE REBATIDA COURO PRETO',
-      servico: 'RECONSTRUÇÃO TOTAL',
-      etapa: 'COURO NOVO + FORRO + LAÇAMENTO',
-      resumo: 'Praticamente irrecuperável no couro original. Reconstruí com couro novo, forro e laçamento do zero, mantendo o formato da luva.',
-      nota: 'RECONSTRUÇÃO DO ZERO, NA MESMA FORMA',
-      angles: [
-        { slug: 'bat-1', label: 'PALMA' }
-      ]
-    }
-  ];
+  // Os dados dos casos vivem no HTML (ver index.html), não aqui. Crawlers de IA
+  // e o Googlebot leem o conteúdo sem executar JS; este arquivo só melhora a
+  // interação por cima do que já está na página.
 
-  var state = { caseIndex: 0, angleIndex: 0 };
-
-  var tabsEl = document.getElementById('tabs');
-  var angleGridEl = document.getElementById('angleGrid');
+  var slider = document.getElementById('baSlider');
+  var fill = document.getElementById('baFill');
   var imgBefore = document.getElementById('imgBefore');
   var imgAfter = document.getElementById('imgAfter');
-  var caseTag = document.getElementById('caseTag');
-  var casePeca = document.getElementById('casePeca');
-  var caseResumo = document.getElementById('caseResumo');
-  var caseServico = document.getElementById('caseServico');
-  var caseEtapa = document.getElementById('caseEtapa');
-  var caseAngleCount = document.getElementById('caseAngleCount');
-  var caseNota = document.getElementById('caseNota');
   var angleTag = document.getElementById('angleTag');
-  var baHint = document.getElementById('baHint');
-  var baSlider = document.getElementById('baSlider');
-  var baFill = document.getElementById('baFill');
+  var caseTag = document.getElementById('caseTag');
+  var hint = document.getElementById('baHint');
+  var tabs = [].slice.call(document.querySelectorAll('.tab'));
+  var cases = [].slice.call(document.querySelectorAll('.case'));
 
   function pad2(n) { return n < 10 ? '0' + n : '' + n; }
 
-  function render() {
-    var c = CASES[state.caseIndex];
-    var angle = c.angles[state.angleIndex];
+  // ---------- ângulos ----------
 
-    imgBefore.src = 'assets/ba/' + angle.slug + '-antes.png';
-    imgAfter.src = 'assets/ba/' + angle.slug + '-depois.png';
-
-    caseTag.textContent = c.reg + ' · ' + c.servico;
-    casePeca.textContent = c.peca;
-    caseResumo.textContent = c.resumo;
-    caseServico.textContent = c.servico;
-    caseEtapa.textContent = c.etapa;
-    caseAngleCount.textContent = c.angles.length + (c.angles.length === 1 ? ' ÂNGULO' : ' ÂNGULOS');
-    caseNota.textContent = c.nota;
-    angleTag.textContent = pad2(state.angleIndex + 1) + '/' + pad2(c.angles.length) + ' · ' + angle.label;
-
-    renderTabs();
-    renderAngles();
-  }
-
-  function renderTabs() {
-    tabsEl.innerHTML = '';
-    CASES.forEach(function (c, i) {
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'tab' + (i === state.caseIndex ? ' active' : '');
-      btn.textContent = c.tabLabel;
-      btn.addEventListener('click', function () {
-        if (state.caseIndex === i) return;
-        state.caseIndex = i;
-        state.angleIndex = 0;
-        render();
-      });
-      tabsEl.appendChild(btn);
+  function pickAngle(caseEl, btn) {
+    var items = [].slice.call(caseEl.querySelectorAll('.angle-item'));
+    var i = items.indexOf(btn);
+    items.forEach(function (b) {
+      var on = b === btn;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
+    var peca = caseEl.getAttribute('data-peca');
+    var label = btn.getAttribute('data-label');
+    imgBefore.src = btn.getAttribute('data-antes');
+    imgAfter.src = btn.getAttribute('data-depois');
+    imgBefore.alt = peca + ' antes da restauração — ' + label.toLowerCase();
+    imgAfter.alt = peca + ' depois da restauração — ' + label.toLowerCase();
+    angleTag.textContent = pad2(i + 1) + '/' + pad2(items.length) + ' · ' + label;
+    slider.setAttribute('aria-label', 'Comparar antes e depois — ' + peca);
   }
 
-  function renderAngles() {
-    var c = CASES[state.caseIndex];
-    angleGridEl.innerHTML = '';
-    c.angles.forEach(function (ang, i) {
-      var item = document.createElement('button');
-      item.type = 'button';
-      item.className = 'angle-item' + (i === state.angleIndex ? ' active' : '');
-      var img = document.createElement('img');
-      img.src = 'assets/ba/' + ang.slug + '-depois.png';
-      img.alt = ang.label;
-      var label = document.createElement('span');
-      label.textContent = ang.label;
-      item.appendChild(img);
-      item.appendChild(label);
-      item.addEventListener('click', function () {
-        if (state.angleIndex === i) return;
-        state.angleIndex = i;
-        render();
-      });
-      angleGridEl.appendChild(item);
+  // ---------- abas ----------
+
+  function pickCase(idx) {
+    tabs.forEach(function (t, i) {
+      var on = i === idx;
+      t.classList.toggle('active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.tabIndex = on ? 0 : -1;
     });
+    cases.forEach(function (c, i) {
+      if (i === idx) { c.removeAttribute('hidden'); } else { c.setAttribute('hidden', ''); }
+    });
+    var caseEl = cases[idx];
+    caseTag.textContent = caseEl.getAttribute('data-reg') + ' · ' + caseEl.getAttribute('data-servico');
+    pickAngle(caseEl, caseEl.querySelector('.angle-item'));
   }
 
-  render();
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener('click', function () { pickCase(i); });
+    tab.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      var n = (i + d + tabs.length) % tabs.length;
+      pickCase(n);
+      tabs[n].focus();
+    });
+  });
 
-  // ---------- comparador: auto-play em CSS, arraste assume o controle ----------
+  document.querySelectorAll('.angle-item').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      pickAngle(btn.closest('.case'), btn);
+    });
+  });
+
+  // ---------- comparador: auto-play em CSS, arraste/teclado assumem ----------
 
   var dragging = false;
-  var hasInteracted = false;
+  var tookOver = false;
 
-  function clamp(v, min, max) { return Math.min(max, Math.max(min, v)); }
+  function clamp(v, lo, hi) { return Math.min(hi, Math.max(lo, v)); }
 
-  function pctFromEvent(e) {
-    var rect = baSlider.getBoundingClientRect();
-    var pct = ((e.clientX - rect.left) / rect.width) * 100;
-    return clamp(pct, 1.5, 98.5);
+  function setPct(pct) {
+    pct = clamp(pct, 1.5, 98.5);
+    fill.style.width = pct + '%';
+    slider.setAttribute('aria-valuenow', Math.round(pct));
+    slider.setAttribute('aria-valuetext', Math.round(pct) + '% do depois visível');
   }
 
-  function takeControl() {
-    if (hasInteracted) return;
-    hasInteracted = true;
-    baFill.style.animation = 'none';
-    baHint.textContent = 'ARRASTE A LINHA PARA COMPARAR';
+  function takeOver() {
+    if (tookOver) return;
+    tookOver = true;
+    fill.style.animation = 'none';
+    hint.textContent = 'Arraste a linha para comparar';
   }
 
-  baSlider.addEventListener('pointerdown', function (e) {
+  function pctFrom(e) {
+    var r = slider.getBoundingClientRect();
+    return ((e.clientX - r.left) / r.width) * 100;
+  }
+
+  slider.addEventListener('pointerdown', function (e) {
     dragging = true;
-    takeControl();
-    baFill.style.width = pctFromEvent(e) + '%';
-    baSlider.setPointerCapture(e.pointerId);
+    takeOver();
+    setPct(pctFrom(e));
+    slider.setPointerCapture(e.pointerId);
   });
 
-  baSlider.addEventListener('pointermove', function (e) {
-    if (!dragging) return;
-    baFill.style.width = pctFromEvent(e) + '%';
+  slider.addEventListener('pointermove', function (e) {
+    if (dragging) setPct(pctFrom(e));
   });
 
-  function endDrag(e) {
-    dragging = false;
-  }
+  function endDrag() { dragging = false; }
+  slider.addEventListener('pointerup', endDrag);
+  slider.addEventListener('pointercancel', endDrag);
 
-  baSlider.addEventListener('pointerup', endDrag);
-  baSlider.addEventListener('pointercancel', endDrag);
+  slider.addEventListener('keydown', function (e) {
+    var cur = parseFloat(slider.getAttribute('aria-valuenow')) || 50;
+    var step = e.shiftKey ? 10 : 2;
+    var next = null;
+    if (e.key === 'ArrowRight') next = cur + step;
+    else if (e.key === 'ArrowLeft') next = cur - step;
+    else if (e.key === 'Home') next = 0;
+    else if (e.key === 'End') next = 100;
+    if (next === null) return;
+    e.preventDefault();
+    takeOver();
+    setPct(next);
+  });
 
   // ---------- menu mobile ----------
 
